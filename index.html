@@ -86,7 +86,7 @@
       navigator.clipboard.writeText(email).then(()=>{
         const t = document.getElementById('toast');
         t.style.display='block';
-        t.innerText = '이메일 주소가 복사되었습니다: '+email;
+        t.innerText = 'Email address has been copied: '+email;
         setTimeout(()=>t.style.display='none',2200);
       })
     }
