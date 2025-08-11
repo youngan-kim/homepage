@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>홍길동 | 연구 · 출판 · 강의</title>
+  <meta name="description" content="연구자 홍길동의 개인 홈페이지 — 연구 주제, 출판 목록, 강의, 프로젝트, 연락처." />
+  <meta name="theme-color" content="#0f172a" />
+  <!-- SEO / Social -->
+  <meta property="og:title" content="홍길동 | 연구 · 출판 · 강의" />
+  <meta property="og:description" content="연구 주제, 출판물, 강의, 프로젝트 소개" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#0f172a; --muted:#94a3b8; --text:#e5e7eb; --brand:#22d3ee; --brand-weak:#67e8f9; --accent:#38bdf8;
+      --link:#7dd3fc; --chip:#1f2937; --chip-border:#334155; --ok:#22c55e; --warn:#f59e0b;
+      --maxw:1080px; --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:'Inter','Noto Sans KR',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Apple SD Gothic Neo","Malgun Gothic","Noto Sans CJK KR",sans-serif;background:linear-gradient(180deg,#0b1020 0%,#0b1224 30%,#0b1428 100%);color:var(--text);line-height:1.6}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+    header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(10px);background:rgba(11,16,32,.6);border-bottom:1px solid #1f2937;z-index:40}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:14px 28px}
+    .nav a.brand{display:flex;gap:12px;align-items:center;font-weight:700}
+    .nav .links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav .links a{padding:6px 10px;border-radius:10px;border:1px solid transparent}
+    .nav .links a:hover{border-color:#334155;background:#0b1930}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:42px 0}
+    .card{background:linear-gradient(180deg,#0f172a, #0b1326);border:1px solid #1f2937;border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+    .hero .card{padding:28px}
+    .kicker{color:var(--brand-weak);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.8rem}
+    h1{font-size:2.2rem;margin:.2rem 0 1rem}
+    .muted{color:var(--muted)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .chip{border:1px solid var(--chip-border);background:var(--chip);padding:6px 10px;border-radius:999px;font-size:.9rem}
+    .photo{aspect-ratio:1/1;border-radius:16px;background:#0a0f20 url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=800&auto=format&fit=crop') center/cover;border:1px solid #1f2937}
+
+    section{padding:22px 0}
+    section .head{display:flex;align-items:flex-end;justify-content:space-between;margin:8px 0 14px}
+    section h2{margin:0;font-size:1.6rem}
+    .grid{display:grid;gap:16px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    @media (max-width:920px){.hero{grid-template-columns:1fr}.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+
+    .pub-controls{display:flex;gap:10px;flex-wrap:wrap}
+    input[type="search"], select, .btn{background:#0b1930;border:1px solid #1f2937;color:var(--text);padding:10px 12px;border-radius:12px}
+    .btn{cursor:pointer}
+    .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));color:#001018;border:0;font-weight:700}
+
+    .pub{padding:16px;border-radius:14px;border:1px solid #1f2937;background:linear-gradient(180deg,#0e152b,#0b1428)}
+    .pub h3{margin:0 0 6px;font-size:1.05rem}
+    .pub .meta{font-size:.95rem;color:var(--muted)}
+    .pub .tags{margin-top:10px}
+    .pub .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+
+    footer{margin:40px 0 80px;color:var(--muted);text-align:center}
+    .divider{height:1px;background:linear-gradient(90deg,transparent,#1f2937,transparent);margin:24px 0}
+    .sr{position:absolute;left:-9999px}
+    .toast{position:fixed;right:16px;bottom:16px;background:#101a33;border:1px solid #1f2937;padding:12px 14px;border-radius:12px;display:none}
+  </style>
+  <script>
+    // Simple publication filtering
+    function filterPubs(){
+      const q = document.getElementById('q').value.toLowerCase();
+      const year = document.getElementById('year').value;
+      const list = document.querySelectorAll('.pub');
+      list.forEach(el=>{
+        const text = el.innerText.toLowerCase();
+        const y = el.getAttribute('data-year');
+        el.style.display = (text.includes(q) && (year==='all' || year===y)) ? '' : 'none';
+      })
+    }
+    function copyEmail(){
+      const email = document.getElementById('email').dataset.email;
+      navigator.clipboard.writeText(email).then(()=>{
+        const t = document.getElementById('toast');
+        t.style.display='block';
+        t.innerText = '이메일 주소가 복사되었습니다: '+email;
+        setTimeout(()=>t.style.display='none',2200);
+      })
+    }
+    function currentYearOptions(){
+      const years = new Set([...document.querySelectorAll('.pub')].map(el=>el.getAttribute('data-year')));
+      const sel = document.getElementById('year');
+      [...years].sort((a,b)=>b-a).forEach(y=>{
+        const o=document.createElement('option');o.value=y;o.textContent=y;sel.appendChild(o);
+      })
+    }
+    document.addEventListener('DOMContentLoaded',currentYearOptions);
+  </script>
+  <!-- JSON-LD Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "홍길동",
+    "jobTitle": "교수",
+    "affiliation": {"@type":"Organization","name":"OO대학교"},
+    "url": "https://example.com",
+    "email": "mailto:you@example.com",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=XXXXXXXX",
+      "https://orcid.org/0000-0000-0000-0000",
+      "https://linkedin.com/in/yourprofile"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="홈으로">
+        <span style="font-size:1.3rem">🎓</span>
+        <span>홍길동</span>
+      </a>
+      <div class="links">
+        <a href="#about">소개</a>
+        <a href="#research">연구</a>
+        <a href="#pubs">출판</a>
+        <a href="#teaching">강의</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#contact">연락처</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="hero">
+      <div class="card">
+        <div class="kicker">연구자 개인 홈페이지</div>
+        <h1>안녕하세요, 저는 <span style="color:var(--brand)">홍길동</span>입니다.</h1>
+        <p class="muted">도시범죄, 공간 데이터 과학, 생활과정 관점의 장소(Place)와 이주, 이웃 변화 등 사회문제를 다루는 정량·정성 혼합연구를 수행합니다.</p>
+        <div class="chips">
+          <span class="chip">도시범죄</span>
+          <span class="chip">지리공간 분석</span>
+          <span class="chip">혼합방법</span>
+          <span class="chip">정책평가</span>
+        </div>
+        <div class="actions" style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn primary" href="#pubs">출판물 보기</a>
+          <a class="btn" href="#contact">연락하기</a>
+          <a class="btn" href="/CV_HongGildong.pdf" download>CV 다운로드</a>
+        </div>
+      </div>
+      <div class="photo" aria-hidden="true"></div>
+    </section>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <section id="about">
+      <div class="head"><h2>소개</h2></div>
+      <div class="grid cols-2">
+        <article class="card" style="padding:20px">
+          <p>현재 <strong>OO대학교</strong> ○○학과의 교수로 재직 중입니다. 주요 관심사는 <em>이웃 변화의 생애과정적 관점</em>, <em>수평·수직 용도혼합과 범죄</em>, <em>실시간 범죄 분석</em>입니다. 최근에는 뉴욕시 센서스 블록 수준의 공간범죄 패턴을 연구하고 있습니다.</p>
+          <p class="muted">이 페이지는 손쉽게 업데이트할 수 있도록 설계되었습니다. 아래 출판 목록에 새 논문을 추가하거나, 프로젝트 섹션에 링크를 더하세요.</p>
+        </article>
+        <aside class="card" style="padding:20px">
+          <h3 style="margin-top:0">빠른 링크</h3>
+          <ul>
+            <li><a href="https://scholar.google.com/citations?user=XXXXXXXX" target="_blank" rel="noreferrer">Google Scholar</a></li>
+            <li><a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noreferrer">ORCID</a></li>
+            <li><a href="#pubs">출판물</a> · <a href="#teaching">강의</a> · <a href="#projects">프로젝트</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="head"><h2>연구 주제</h2></div>
+      <div class="grid cols-3">
+        <article class="card" style="padding:16px">
+          <h3 style="margin:6px 0">이웃 변화의 생애과정 관점</h3>
+          <p class="muted">개인의 삶의 궤적과 장소 경험의 상호작용을 통해 이웃의 변화를 설명합니다.</p>
+        </article>
+        <article class="card" style="padding:16px">
+          <h3 style="margin:6px 0">2D/3D 용도혼합과 범죄</h3>
+          <p class="muted">수평·수직 용도혼합이 범죄 발생에 미치는 메커니즘을 공간통계로 규명.</p>
+        </article>
+        <article class="card" style="padding:16px">
+          <h3 style="margin:6px 0">실시간 범죄 분석</h3>
+          <p class="muted">도시 안전을 위한 실시간 분석과 정책적 함의를 도출합니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="pubs">
+      <div class="head">
+        <h2>출판물</h2>
+        <div class="pub-controls">
+          <input id="q" type="search" placeholder="제목·저자·키워드 검색" oninput="filterPubs()" aria-label="출판물 검색" />
+          <select id="year" onchange="filterPubs()" aria-label="연도 필터">
+            <option value="all">모든 연도</option>
+          </select>
+          <a class="btn" href="https://scholar.google.com/citations?user=XXXXXXXX" target="_blank" rel="noreferrer">Google Scholar 전체 보기 ↗</a>
+        </div>
+      </div>
+      <div class="grid">
+        <!-- 복사해 사용하세요: 각 항목은 data-year와 키워드 포함 -->
+        <article class="pub" data-year="2025">
+          <h3>수평·수직 용도혼합과 공간 범죄 패턴: 뉴욕시 센서스 블록 분석</h3>
+          <div class="meta">홍길동, 김OO · <em>도시연구저널</em> · 2025</div>
+          <p class="muted">2D/3D 용도혼합 지표가 범죄에 미치는 영향을 베이지안 공간모형으로 추정.</p>
+          <div class="tags chips">
+            <span class="chip">용도혼합</span><span class="chip">공간통계</span><span class="chip">범죄</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#" target="_blank" rel="noreferrer">DOI</a>
+            <a class="btn" href="#" target="_blank" rel="noreferrer">PDF</a>
+            <a class="btn" href="#" target="_blank" rel="noreferrer">데이터/코드</a>
+          </div>
+        </article>
+        <article class="pub" data-year="2024">
+          <h3>생애과정 관점에서 본 이웃 변화와 범죄</h3>
+          <div class="meta">홍길동 · <em>사회과학리뷰</em> · 2024</div>
+          <p class="muted">개인의 이동성과 장소 경험의 누적이 범죄 노출을 어떻게 재구성하는지 검토.</p>
+          <div class="tags chips"><span class="chip">생애과정</span><span class="chip">이웃</span></div>
+          <div class="actions">
+            <a class="btn" href="#" target="_blank">PDF</a>
+          </div>
+        </article>
+        <article class="pub" data-year="2023">
+          <h3>실시간 범죄 분석과 정책의사결정</h3>
+          <div class="meta">홍길동, 이OO · <em>공공정책연구</em> · 2023</div>
+          <p class="muted">실시간 분석 기반의 정책 실험과 도시 안전 개선 사례.</p>
+          <div class="tags chips"><span class="chip">실시간</span><span class="chip">정책평가</span></div>
+          <div class="actions">
+            <a class="btn" href="#" target="_blank">PDF</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="head"><h2>강의</h2></div>
+      <div class="grid cols-2">
+        <article class="card" style="padding:16px">
+          <h3 style="margin:6px 0">도시범죄와 공간데이터 (학부)</h3>
+          <p class="muted">R/Python 실습 중심. 공간회귀·포아송 모형, 베이지안 기초.</p>
+          <ul>
+            <li><a href="#">2025 봄 강의계획서 (PDF)</a></li>
+            <li><a href="#">과제/노트북 (GitHub)</a></li>
+          </ul>
+        </article>
+        <article class="card" style="padding:16px">
+          <h3 style="margin:6px 0">정책평가의 방법 (대학원)</h3>
+          <p class="muted">차분-차분, 합성통제, 도구변수, 공간적 내생성 이슈.</p>
+          <ul>
+            <li><a href="#">강의계획서 (PDF)</a></li>
+            <li><a href="#">강의 자료 (Slides)</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="head"><h2>프로젝트</h2></div>
+      <div class="grid cols-2">
+        <article class="card" style="padding:16px">
+          <h3 style="margin:6px 0">Capital Region 실시간 범죄센터 협력</h3>
+          <p class="muted">범죄 분석 인증과정과 연계한 실무 협업. 데이터 파이프라인 및 리포팅 자동화.</p>
+          <a class="btn" href="#" target="_blank">요약 보기</a>
+        </article>
+        <article class="card" style="padding:16px">
+          <h3 style="margin:6px 0">뉴욕시 블록 수준 범죄 패턴</h3>
+          <p class="muted">용도혼합(2D/3D)과 범죄의 관계를 다층 공간모형으로 분석.</p>
+          <a class="btn" href="#" target="_blank">코드/데이터</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="head"><h2>연락처</h2></div>
+      <div class="grid cols-2">
+        <article class="card" style="padding:16px">
+          <p id="email" data-email="you@example.com">이메일: <button class="btn" onclick="copyEmail()">복사하기</button></p>
+          <p>소속: OO대학교 ○○학과 · 연구실 123호</p>
+          <p>소셜: <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> · <a href="https://github.com/yourname" target="_blank">GitHub</a> · <a href="https://x.com/yourhandle" target="_blank">X</a></p>
+        </article>
+        <aside class="card" style="padding:16px">
+          <h3 style="margin:6px 0">뉴스레터 구독</h3>
+          <p class="muted">새 논문·강의 소식을 이메일로 받아보세요.</p>
+          <form action="#" method="post" onsubmit="alert('데모 양식입니다. 실제 메일 서비스에 연결해주세요.');return false;">
+            <input type="email" required placeholder="your@email.com" aria-label="이메일" />
+            <button class="btn primary" type="submit">구독</button>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year-now"></span> 홍길동. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    document.getElementById('year-now').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- (선택) Google Analytics 등 스크립트 자리 -->
+</body>
+</html>
