@@ -166,11 +166,11 @@
           <p class="muted">You can see my research work below or navigate to my Google Scholar page.</p>
         </article>
         <aside class="card" style="padding:20px">
-          <h3 style="margin-top:0">빠른 링크</h3>
+          <h3 style="margin-top:0">Quick Links</h3>
           <ul>
             <li><a href="https://scholar.google.com/citations?user=kQK2OdAAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a></li>
             <li><a href="https://orcid.org/0000-0003-0244-4070" target="_blank" rel="noreferrer">ORCID</a></li>
-            <li><a href="#pubs">출판물</a> · <a href="#teaching">강의</a> · <a href="#projects">프로젝트</a></li>
+            <li><a href="#pubs">Publication</a> · <a href="#teaching">Teaching</a> · <a href="#projects">Projects</a></li>
           </ul>
         </aside>
       </div>
@@ -196,28 +196,23 @@
 
     <section id="pubs">
       <div class="head">
-        <h2>출판물</h2>
+        <h2>Publication</h2>
         <div class="pub-controls">
-          <input id="q" type="search" placeholder="제목·저자·키워드 검색" oninput="filterPubs()" aria-label="출판물 검색" />
-          <select id="year" onchange="filterPubs()" aria-label="연도 필터">
-            <option value="all">모든 연도</option>
+          <input id="q" type="search" placeholder="Title·Author·Keyword search" oninput="filterPubs()" aria-label="Publication search" />
+          <select id="year" onchange="filterPubs()" aria-label="Year filter">
+            <option value="all">All years</option>
           </select>
-          <a class="btn" href="https://scholar.google.com/citations?user=XXXXXXXX" target="_blank" rel="noreferrer">Google Scholar 전체 보기 ↗</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=kQK2OdAAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar↗</a>
         </div>
       </div>
       <div class="grid">
         <!-- 복사해 사용하세요: 각 항목은 data-year와 키워드 포함 -->
         <article class="pub" data-year="2025">
-          <h3>수평·수직 용도혼합과 공간 범죄 패턴: 뉴욕시 센서스 블록 분석</h3>
-          <div class="meta">홍길동, 김OO · <em>도시연구저널</em> · 2025</div>
-          <p class="muted">2D/3D 용도혼합 지표가 범죄에 미치는 영향을 베이지안 공간모형으로 추정.</p>
-          <div class="tags chips">
-            <span class="chip">용도혼합</span><span class="chip">공간통계</span><span class="chip">범죄</span>
-          </div>
+          <h3>Examining how structural characteristics and the physical environment simultaneously impact crime in neighborhoods: Using a semi-parametric strategy</h3>
+          <div class="meta">Young-An Kim · John R. Hipp<em>Journal of Criminal Justice</em> · 2025</div>
+          <p class="muted">This study examines the associations between various social and physical environmental characteristics and their interrelated influence on neighborhood crime. Using Kernel Regularized Least Squares (KRLS), we estimate the marginal effects of each independent variable at each datapoint by providing pointwise estimates of partial derivatives. </p>
           <div class="actions">
-            <a class="btn" href="#" target="_blank" rel="noreferrer">DOI</a>
-            <a class="btn" href="#" target="_blank" rel="noreferrer">PDF</a>
-            <a class="btn" href="#" target="_blank" rel="noreferrer">데이터/코드</a>
+            <a class="btn" href="https://doi.org/10.1016/j.jcrimjus.2025.102482" target="_blank" rel="noreferrer">DOI</a>
           </div>
         </article>
         <article class="pub" data-year="2024">
