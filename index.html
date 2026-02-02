@@ -1,58 +1,57 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Young-An Kim | Associate Professor at FSU</title>
-  <meta name="description" content="Official research page of Young-An Kim, Associate Professor in Criminology at Florida State University." />
-  <meta name="theme-color" content="#0f172a" />
+  <title>Young-An Kim | Research & Teaching</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #030712; --panel: rgba(15, 23, 42, 0.7); --muted: #94a3b8; --text: #f1f5f9;
-      --brand: #22d3ee; --brand-gradient: linear-gradient(135deg, #22d3ee 0%, #3b82f6 100%);
-      --accent: #818cf8; --link: #7dd3fc; --chip: rgba(31, 41, 55, 0.6); --radius: 20px;
+      --bg: #fdfdfe; --panel: #ffffff; --muted: #64748b; --text: #1e293b; 
+      --brand: #0284c7; --accent: #0ea5e9; --border: #e2e8f0; --maxw: 1100px;
     }
-    * { box-sizing: border-box; transition: all 0.25s ease; }
-    html, body { margin: 0; padding: 0; background-color: var(--bg); color: var(--text); overflow-x: hidden; font-family: 'Inter', 'Noto Sans KR', sans-serif; line-height: 1.7; }
-    body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 15% 15%, rgba(34, 211, 238, 0.07) 0%, transparent 35%), radial-gradient(circle at 85% 85%, rgba(129, 140, 248, 0.07) 0%, transparent 35%); z-index: -1; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-    header { position: sticky; top: 0; backdrop-filter: blur(16px); background: rgba(3, 7, 18, 0.85); border-bottom: 1px solid rgba(255,255,255,0.05); z-index: 100; }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 75px; }
-    .nav a { text-decoration: none; color: var(--muted); font-size: 0.9rem; font-weight: 500; }
-    .nav a.brand { font-weight: 700; font-size: 1.25rem; color: var(--text); }
-    .nav .links { display: flex; gap: 28px; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background-color: var(--bg); color: var(--text); font-family: 'Inter', 'Noto Sans KR', sans-serif; line-height: 1.6; }
+    a { color: var(--brand); text-decoration: none; transition: 0.2s; }
+    a:hover { color: var(--accent); text-decoration: underline; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+    header { position: sticky; top: 0; backdrop-filter: blur(12px); background: rgba(255, 255, 255, 0.85); border-bottom: 1px solid var(--border); z-index: 100; }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 70px; }
+    .nav a.brand { font-weight: 700; font-size: 1.2rem; color: var(--text); }
+    .nav .links { display: flex; gap: 24px; }
+    .nav .links a { font-size: 0.9rem; font-weight: 500; color: var(--muted); }
     .nav .links a:hover { color: var(--brand); }
-    .hero { display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 40px; align-items: center; padding: 100px 0; }
-    .card { background: var(--panel); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius); padding: 35px; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
-    h1 { font-size: 3.2rem; margin: 0 0 1.5rem; line-height: 1.1; letter-spacing: -0.03em; }
-    .hero-p { font-size: 1.15rem; color: var(--muted); margin-bottom: 28px; }
+    .hero { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; padding: 80px 0; }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); padding: 35px; }
+    h1 { font-size: 2.8rem; margin: 0 0 1rem; letter-spacing: -0.03em; color: var(--text); }
+    .hero-p { font-size: 1.1rem; color: var(--muted); margin-bottom: 30px; }
     .chips { display: flex; gap: 10px; flex-wrap: wrap; }
-    .chip { background: var(--chip); border: 1px solid rgba(51, 65, 85, 0.8); padding: 7px 15px; border-radius: 99px; font-size: 0.85rem; }
-    .photo { aspect-ratio: 1/1; border-radius: var(--radius); background: #1e293b url('IMG_5069.jpg') center/cover; border: 1px solid rgba(255,255,255,0.1); }
-    section { padding: 80px 0; }
-    h2 { font-size: 2.2rem; margin-bottom: 35px; display: flex; align-items: center; gap: 15px; }
-    h2::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,255,255,0.15), transparent); }
-    .grid { display: grid; gap: 24px; }
-    .pub-controls { display: flex; gap: 12px; margin-bottom: 35px; flex-wrap: wrap; }
-    input, select, .btn { background: rgba(30, 41, 59, 0.4); border: 1px solid rgba(51, 65, 85, 0.8); color: var(--text); padding: 12px 20px; border-radius: 14px; outline: none; }
-    .btn { cursor: pointer; font-weight: 600; text-decoration: none !important; display: inline-flex; align-items: center; }
-    .btn.primary { background: var(--brand-gradient); color: #030712; border: none; }
-    .pub { padding: 28px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.05); background: rgba(15, 23, 42, 0.3); }
-    .pub:hover { transform: scale(1.01); border-color: rgba(34, 211, 238, 0.3); }
-    .pub h3 { margin: 0 0 10px; font-size: 1.2rem; line-height: 1.35; }
-    .pub .meta { font-size: 0.95rem; color: var(--brand); margin-bottom: 12px; }
-    .pub .abstract { font-size: 0.9rem; color: var(--muted); }
-    footer { padding: 80px 0 40px; text-align: center; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.05); }
-    .toast { position: fixed; bottom: 30px; right: 30px; background: var(--brand-gradient); color: #030712; padding: 15px 30px; border-radius: 15px; font-weight: 700; display: none; z-index: 200; }
-    @media (max-width: 920px) { .hero, .grid-cols { grid-template-columns: 1fr; } .photo { order: -1; max-width: 300px; margin: 0 auto; } }
+    .chip { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: var(--muted); font-weight: 500; }
+    .photo { aspect-ratio: 1/1; border-radius: 20px; background: #e2e8f0 url('IMG_5069.jpg') center/cover; border: 1px solid var(--border); }
+    section { padding: 60px 0; }
+    .head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 30px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; }
+    h2 { margin: 0; font-size: 2rem; letter-spacing: -0.01em; }
+    .pub-list { display: grid; gap: 18px; }
+    .pub { padding: 25px; border-radius: 15px; border: 1px solid var(--border); background: #fff; transition: 0.2s; }
+    .pub:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--brand); }
+    .pub h3 { margin: 0 0 10px; font-size: 1.15rem; line-height: 1.4; color: var(--text); }
+    .pub .meta { font-size: 0.9rem; color: var(--brand); font-weight: 600; margin-bottom: 8px; }
+    .pub .meta em { color: var(--muted); font-style: normal; font-weight: 400; }
+    .pub .abstract { font-size: 0.9rem; color: var(--muted); display: block; margin-top: 10px; line-height: 1.5; }
+    .pub-controls { display: flex; gap: 10px; }
+    input, select, .btn { background: #fff; border: 1px solid var(--border); padding: 10px 16px; border-radius: 12px; font-size: 0.9rem; outline: none; }
+    .btn { cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; background: var(--brand); color: #fff; border: none; }
+    .btn:hover { background: var(--accent); }
+    footer { padding: 60px 0; text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid #f1f5f9; }
+    .toast { position: fixed; bottom: 30px; right: 30px; background: var(--text); color: #fff; padding: 15px 25px; border-radius: 12px; display: none; z-index: 1000; }
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .photo { order: -1; max-width: 300px; margin: 0 auto; } }
   </style>
 </head>
 <body>
 
   <header>
     <div class="wrap nav">
-      <a class="brand" href="#top">🎓 Young-An Kim</a>
+      <a class="brand" href="#">Young-An Kim</a>
       <div class="links">
         <a href="#about">About</a>
         <a href="#pubs">Research</a>
@@ -62,373 +61,281 @@
     </div>
   </header>
 
-  <main class="wrap" id="top">
+  <main class="wrap">
     <section class="hero">
       <div class="card">
-        <span style="color:var(--brand); font-weight:700; text-transform:uppercase; font-size:0.8rem; letter-spacing:0.1em;">Associate Professor @ FSU</span>
-        <h1>Hi, I'm <span style="color:var(--brand)">Young-An Kim.</span></h1>
-        <p class="hero-p">I am a criminologist specializing in <strong>Spatial Analysis</strong>. I study the "where" and "why" of crime through computational methods and GIS.</p>
+        <span style="color:var(--brand); font-weight:700; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; display:block; margin-bottom:12px;">Associate Professor at Florida State University</span>
+        <h1>Bridging Spatial Data & <br><span style="color:var(--brand)">Urban Criminology.</span></h1>
+        <p class="hero-p">안녕하세요. 저는 지리정보시스템(GIS)과 정교한 계량 분석법을 결합하여 도시 환경과 범죄 사이의 역동적인 관계를 연구하는 사회과학자입니다.</p>
         <div class="chips">
-          <span class="chip">Neighborhood Crime</span><span class="chip">Spatial Crime Pattern</span><span class="chip">GIS / ArcPy</span><span class="chip">Computational Social Science</span>
+          <span class="chip">Spatial Analysis</span><span class="chip">Causal Inference</span><span class="chip">GIS / ArcPy</span><span class="chip">Neighborhood Crime</span>
         </div>
-        <div style="margin-top:40px; display:flex; gap:15px;">
-          <a class="btn primary" href="#pubs">View Publications</a>
-          <a class="btn" href="CV_Kim_2026.pdf" download>Download CV</a>
+        <div style="margin-top:35px; display:flex; gap:12px;">
+          <a class="btn" href="#pubs">Explore Research</a>
+          <a class="btn" style="background:#f1f5f9; color:var(--text);" href="CV_Kim_2026.pdf" download>Download CV</a>
         </div>
       </div>
       <div class="photo"></div>
     </section>
 
     <section id="about">
-      <h2>About Me</h2>
-      <div class="grid" style="grid-template-columns: 1.2fr 0.8fr;">
-        <div class="card">
-          <p>I am an Associate Professor in the College of Criminology and Criminal Justice at <strong>Florida State University</strong>. My research investigates why some areas in cities have more crime than others, utilizing <strong>Geographic Information Systems (GIS)</strong> and advanced quantitative techniques.</p>
-          <p>저는 물리적 환경과 사회적 요인이 시간에 따라 범죄 패턴에 미치는 영향을 분석하며, 안전한 도시 환경을 위한 학제적 연구를 수행하고 있습니다.</p>
-        </div>
-        <div class="card" style="background: rgba(34, 211, 238, 0.03);">
-          <h3 style="margin-top:0">Core Expertise</h3>
-          <div class="chips">
-            <span class="chip">Spatial Econometrics</span><span class="chip">Python Data Science</span><span class="chip">Causal Inference</span>
-          </div>
-          <div style="margin-top:25px;">
-            <a href="https://scholar.google.com/citations?user=kQK2OdAAAAAJ" target="_blank" class="btn" style="width:100%; margin-bottom:10px;">Google Scholar</a>
-            <a href="https://criminology.fsu.edu/faculty-and-staff/young-an-kim" target="_blank" class="btn" style="width:100%;">FSU Faculty Page</a>
-          </div>
-        </div>
+      <div class="head"><h2>About Me</h2></div>
+      <div class="card" style="line-height:1.8;">
+        <p>저는 <strong>Florida State University</strong>의 Criminology & Criminal Justice 대학 부교수로 재직 중입니다. 저의 주된 연구 질문은 "왜 특정 지역에서 범죄가 집중적으로 발생하는가?"이며, 이를 위해 <strong>Geographic Information Systems (GIS)</strong>와 빅데이터 분석을 활용합니다.</p>
+        <p>물리적 도시 환경(토지 이용, 가로망 구조 등)과 사회적 요인이 시간에 따라 범죄 패턴에 미치는 영향을 다차원적으로 분석하며, 학문적 연구를 넘어 안전한 도시 정책 수립에 기여하고자 노력하고 있습니다.</p>
       </div>
     </section>
 
     <section id="pubs">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px; flex-wrap:wrap; gap:20px;">
-        <h2>Selected Publications</h2>
+      <div class="head">
+        <h2>Full Publications (45)</h2>
         <div class="pub-controls">
-          <input id="q" type="search" placeholder="Search..." oninput="filterPubs()" />
+          <input id="q" type="search" placeholder="Search title..." oninput="filterPubs()" />
           <select id="year" onchange="filterPubs()"><option value="all">All Years</option></select>
         </div>
       </div>
-
-      <div class="grid" id="pub-list">
+      <div class="pub-list" id="pub-container">
         <article class="pub" data-year="2026">
           <div class="meta">2026 · <strong>Young-An Kim</strong>, Jongwoo Jeong · <em>Crime and Delinquency</em></div>
           <h3>Spatial Modeling in Neighborhood and Crime Studies: An Empirical Examination</h3>
-          <p class="abstract">Theoretically discussing spatial dependence and demonstrating its methodological advantages.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/00111287261416406" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <span class="abstract">Theoretical discussion on addressing spatial dependence and demonstrating its methodological advantages.</span>
         </article>
         <article class="pub" data-year="2026">
           <div class="meta">2026 · <strong>Young-An Kim</strong>, Keungoui Kim · <em>American Journal of Criminal Justice</em></div>
           <h3>Understanding the Spatial Co-Occurrence of Different Crime Types and Brokerage Crime in NYC</h3>
-          <p class="abstract">Identifies brokerage crime types that link one group of crime and another within a spatial network.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1007/s12103-025-09887-8" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <span class="abstract">Examining spatial co-occurrence patterns using network analysis in NYC.</span>
         </article>
 
         <article class="pub" data-year="2025">
           <div class="meta">2025 · <strong>Young-An Kim</strong>, Jongwoo Jeong · <em>Journal of Quantitative Criminology</em></div>
           <h3>Making Spatial More Spatial: Decomposing Direct, Indirect, and Total Impacts</h3>
-          <p class="abstract">Adapting the direct-indirect-total effect interpretation in neighborhood and crime studies.</p>
-          <div style="margin-top:15px;"><a href="http://doi.org/10.1007/s10940-025-09646-2" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2025">
           <div class="meta">2025 · <strong>Young-An Kim</strong>, John R. Hipp · <em>Journal of Criminal Justice</em></div>
-          <h3>Examining structural characteristics and physical environment impact using semi-parametric strategy</h3>
-          <p class="abstract">Using Kernel Regularized Least Squares (KRLS) to examine interrelated influences on neighborhood crime.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.jcrimjus.2025.102482" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <h3>Examining structural characteristics and the physical environment using semi-parametric strategy</h3>
         </article>
         <article class="pub" data-year="2025">
           <div class="meta">2025 · James C. Wo, <strong>Young-An Kim</strong>, Sarah E. Malone · <em>Journal of Urban Affairs</em></div>
           <h3>Spatial distribution of parking tickets in San Francisco: An overlooked form of inequality?</h3>
-          <p class="abstract">Assessing urban inequality by collecting data on parking ticket distributions in San Francisco.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/07352166.2023.2239956" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2025">
           <div class="meta">2025 · <strong>Young-An Kim</strong>, James C. Wo · <em>Race and Justice</em></div>
           <h3>Linking Neighborhood Crime to Racial Diversity, Immigrant Concentration, and Ethnic Heterogeneity</h3>
-          <p class="abstract">Examining demographic heterogeneity effects on neighborhood crime and possible moderating effects.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/21533687251333807" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2025">
           <div class="meta">2025 · James C. Wo, <strong>Young-An Kim</strong>, Mark T. Berg · <em>Journal of Criminal Justice</em></div>
           <h3>Exploring crime through factors: Greenspace and social disconnection in Los Angeles</h3>
-          <p class="abstract">How crime varies across Los Angeles census tracts with emphasis on greenspace and social interaction.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.jcrimjus.2025.102410" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+        </article>
+        <article class="pub" data-year="2025">
+          <div class="meta">2025 · John R. Hipp, <strong>Young-An Kim</strong> · <em>Journal of Criminal Justice</em></div>
+          <h3>Longitudinal examination of changing land use and crime patterns</h3>
         </article>
 
         <article class="pub" data-year="2024">
-          <div class="meta">2024 · <strong>Young-An Kim</strong>, John R Hipp · <em>Crime & Delinquency</em></div>
+          <div class="meta">2024 · <strong>Young-An Kim</strong>, John R. Hipp · <em>Crime & Delinquency</em></div>
           <h3>Does Street Social Activity Impact Crime? An Analysis in New York City</h3>
-          <p class="abstract">Relationship between social activity vitality/diversity and crime in place.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/00111287231211262" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2024">
           <div class="meta">2024 · Keungoui Kim, <strong>Young-An Kim</strong> · <em>Justice Quarterly</em></div>
-          <h3>A Machine Learning Approach to Analyzing Crime Concentration: New York City</h3>
-          <p class="abstract">Identifying high-crime clusters using k-means clustering and examining temporal stability.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/07418825.2024.2401938" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <h3>A Machine Learning Approach to Analyzing Crime Concentration: The Case of New York City</h3>
         </article>
         <article class="pub" data-year="2024">
           <div class="meta">2024 · J. Ramos, S. J. Piatkowska, <strong>Young-An Kim</strong>, J. R. Hipp · <em>Crime & Delinquency</em></div>
           <h3>Immigrant-Ethnic Activity Space (IEAS), Ex-Prisoner Concentration, and Recidivism</h3>
-          <p class="abstract">Accounting for residential location and routine activities of immigrants in recidivism studies.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/00111287231189721" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2024">
           <div class="meta">2024 · James C. Wo, <strong>Young-An Kim</strong>, Mark T. Berg · <em>Cities</em></div>
           <h3>Alleyways and crime in Denver, Colorado census blocks</h3>
-          <p class="abstract">Block analysis of crime, alleys, land uses, and sociodemographic characteristics in Denver.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.cities.2024.105138" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
 
         <article class="pub" data-year="2023">
           <div class="meta">2023 · <strong>Young-An Kim</strong>, James C. Wo · <em>Journal of Urban Affairs</em></div>
-          <h3>Topography and crime: Elevation, slope, and betweenness in San Francisco</h3>
-          <p class="abstract">Testing main and moderating effects of topography features on crime across street segments.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/07352166.2021.1901591" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <h3>Topography and crime in place: Effects of elevation, slope, and betweenness</h3>
         </article>
         <article class="pub" data-year="2023">
           <div class="meta">2023 · J. A. Schwartz, <strong>Young-An Kim</strong>, T. Dark, S. E. Siennick · <em>JECH</em></div>
-          <h3>Racial and Ethnic Differences in Community Medical Services after Prison</h3>
-          <p class="abstract">Examining returns from prison to medically underserved communities in Florida (2008-2017).</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1136/jech-2022-220222" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <h3>Racial and Ethnic Differences in community medical services after prison</h3>
         </article>
         <article class="pub" data-year="2023">
           <div class="meta">2023 · <strong>Young-An Kim</strong>, James C. Wo · <em>Cities</em></div>
           <h3>Time-Varying Effects of Physical Environment for Walkability on Neighborhood Crime</h3>
-          <p class="abstract">Spatial-temporal examination across nine U.S. cities aggregated by block group and 2-hour periods.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.cities.2023.104530" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2023">
           <div class="meta">2023 · Jae Hong Kim, Kevin Kane, <strong>Young-An Kim</strong>, John R. Hipp · <em>IRSR</em></div>
           <h3>Business Churning and Neighborhood Instability: Is There a Link?</h3>
-          <p class="abstract">Exploring manifestation of establishment-level business information across space in LA.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/01600176221145873" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+        </article>
+        <article class="pub" data-year="2023">
+          <div class="meta">2023 · John R. Hipp, <strong>Young-An Kim</strong> · <em>Criminology</em></div>
+          <h3>The spillover effects of neighborhood business establishment changes on crime</h3>
         </article>
 
         <article class="pub" data-year="2022">
           <div class="meta">2022 · <strong>Young-An Kim</strong>, Joonggon Kim · <em>Crime & Delinquency</em></div>
           <h3>Physical and Social Environments and Crime Patterns in Daegu, South Korea</h3>
-          <p class="abstract">Utilizing 112 Crime Calls Data aggregated at 0.25-mile egohood levels.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/0011128722113096" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2022">
           <div class="meta">2022 · <strong>Young-An Kim</strong>, James C. Wo, John R. Hipp · <em>Justice Quarterly</em></div>
           <h3>Estimating Age-graded Effects of Businesses on Crime in Place</h3>
-          <p class="abstract">Focusing on retail, service, restaurant, and food/drug stores block measures.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/07418825.2022.2107943" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2022">
           <div class="meta">2022 · Nan Li, <strong>Young-An Kim</strong> · <em>Crime & Delinquency</em></div>
           <h3>Subway Station and Neighborhood Crime: Egohood Analysis in NYC</h3>
-          <p class="abstract">Effects of subway stations and ridership magnitude on crime in egohoods.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/00111287221114803" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2022">
-          <div class="meta">2022 · <strong>Young-An Kim</strong>, John R Hipp · <em>Justice Quarterly</em></div>
+          <div class="meta">2022 · <strong>Young-An Kim</strong>, John R. Hipp · <em>Justice Quarterly</em></div>
           <h3>Small local versus non-local businesses and spatial patterns of crime</h3>
-          <p class="abstract">Theorizing crime generator vs crime inhibition effects of business types.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/07418825.2021.1879899" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2022">
           <div class="meta">2022 · <strong>Young-An Kim</strong>, John R. Hipp, Charis E. Kubrin · <em>Crime & Delinquency</em></div>
           <h3>Immigrant Organizations and Neighborhood Crime</h3>
-          <p class="abstract">Examining impact of immigrant-serving organizations in LA Metropolitan area.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/00111287221084289" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2022">
-          <div class="meta">2022 · James C Wo, <strong>Young-An Kim</strong> · <em>BJC</em></div>
+          <div class="meta">2022 · James C. Wo, <strong>Young-An Kim</strong> · <em>BJC</em></div>
           <h3>Unintended consequences? Neighbourhood walkability on crime in nine US cities</h3>
-          <p class="abstract">Linear and nonlinear effects showing walkability associated with higher crime rates.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1093/bjc/azac011" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2022">
           <div class="meta">2022 · <strong>Young-An Kim</strong>, James C. Wo · <em>Crime & Delinquency</em></div>
           <h3>Racial Heterogeneity and Neighborhood Crime: Spatial Scale and Functional Form</h3>
-          <p class="abstract">Relationships across blocks (N=103,168) in greater Southern California region.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/0011128722107496" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2022">
-          <div class="meta">2022 · <strong>Young-An Kim</strong>, John R. Hipp · <em>Journal of Quantitative Criminology</em></div>
-          <h3>Both sides of the street: Physical and social boundaries and crime</h3>
-          <p class="abstract">Introducing differences across street sides to measure boundaries.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1007/s10940-020-09484-4" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <div class="meta">2022 · <strong>Young-An Kim</strong>, John R. Hipp · <em>JQC</em></div>
+          <h3>Both sides of the street: Physical and social boundaries</h3>
         </article>
         <article class="pub" data-year="2022">
-          <div class="meta">2022 · James C Wo, <strong>Young-An Kim</strong> · <em>Deviant Behavior</em></div>
-          <h3>Neighborhood effects on crime in San Francisco: Residential, nonresidential, mixed uses</h3>
-          <p class="abstract">Examining several land use measures on crime counts in SF census blocks.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/01639625.2020.1779988" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <div class="meta">2022 · James C. Wo, <strong>Young-An Kim</strong> · <em>Deviant Behavior</em></div>
+          <h3>Neighborhood effects on crime in San Francisco: Residential, nonresidential, and mixed uses</h3>
         </article>
 
         <article class="pub" data-year="2021">
           <div class="meta">2021 · <strong>Young-An Kim</strong>, John R. Hipp · <em>Journal of Criminal Justice</em></div>
-          <h3>Density, diversity, and design: Built environment and spatial patterns of crime</h3>
-          <p class="abstract">Simultaneously examining effects based on 3D conceptualizations.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.jcrimjus.2021.101864" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
+          <h3>Density, diversity, and design: The built environment and crime</h3>
         </article>
         <article class="pub" data-year="2021">
           <div class="meta">2021 · <strong>Young-An Kim</strong>, James C. Wo · <em>Journal of Crime and Justice</em></div>
           <h3>Spatial and temporal examination of housing demolitions on crime in LA</h3>
-          <p class="abstract">Associations between demolition types (residential/commercial) and crime in place.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/0735648X.2020.1819376" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2021">
           <div class="meta">2021 · John R. Hipp, <strong>Young-An Kim</strong>, James C. Wo · <em>Justice Quarterly</em></div>
           <h3>Micro, meso, macro, and temporal scales: Importance for robbery risk in NYC</h3>
-          <p class="abstract">Comparing relative importance of four dimensions for micro location of robberies.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1080/07418825.2020.1730423" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2021">
           <div class="meta">2021 · <strong>Young-An Kim</strong>, James C. Wo · <em>BJC</em></div>
           <h3>Seasonality and Crime in Orlando Neighbourhoods</h3>
-          <p class="abstract">Modeling crime in small spatial units while accounting for land uses and sociodemographics.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1093/bjc/azab048" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2021">
           <div class="meta">2021 · James C. Wo, <strong>Young-An Kim</strong> · <em>BJC</em></div>
           <h3>Longitudinal examination of building demolitions on neighbourhood crime rates</h3>
-          <p class="abstract">Focusing on potential crime-reducing benefits of demolitions in physical landscape change.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1093/bjc/azaa077" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
 
         <article class="pub" data-year="2020">
-          <div class="meta">2020 · <strong>Young-An Kim</strong>, John R Hipp · <em>Journal of Quantitative Criminology</em></div>
+          <div class="meta">2020 · <strong>Young-An Kim</strong>, John R. Hipp · <em>JQC</em></div>
           <h3>Pathways: street network, structural characteristics and spatial crime patterns</h3>
-          <p class="abstract">Employing betweenness centrality to measure potential foot traffic in street segments.</p>
-          <div style="margin-top:15px;"><a href="https://link.springer.com/article/10.1007/s10940-019-09428-7" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2020">
           <div class="meta">2020 · Kevin Kane, <strong>Young-An Kim</strong> · <em>EPB</em></div>
           <h3>Parcels, points, and proximity: Can big data improve measurement in cities?</h3>
-          <p class="abstract">Analyzing parcel and business data to measure urban services proximity.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/239980831879713" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2020">
-          <div class="meta">2020 · <strong>Young-An Kim</strong>, John R. Hipp · <em>Journal of Quantitative Criminology</em></div>
+          <div class="meta">2020 · <strong>Young-An Kim</strong>, John R. Hipp · <em>JQC</em></div>
           <h3>Street egohood: Alternative perspective of measuring neighborhood and crime</h3>
-          <p class="abstract">Accounting for streets and overlapping spatial nature of social environments.</p>
-          <div style="margin-top:15px;"><a href="https://link.springer.com/article/10.1007/s10940-019-09410-3" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
-        </article>
-
-        <article class="pub" data-year="2019">
-          <div class="meta">2019 · John R. Hipp, <strong>Young-An Kim</strong>, Kevin Kane · <em>Crime & Delinquency</em></div>
-          <h3>Physical environment on crime: Housing age and type at varying scales</h3>
-          <p class="abstract">Introducing filtering theory from housing economics to criminology.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/0011128718779569" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2019">
           <div class="meta">2019 · <strong>Young-An Kim</strong>, John R. Hipp, Charis E. Kubrin · <em>Journal of Criminal Justice</em></div>
           <h3>Where they live and go: Immigrant ethnic activity space and crime</h3>
-          <p class="abstract">Accounting for immigrant residences and ethnic business proximity in Southern California.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.jcrimjus.2019.05.004" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2019">
-          <div class="meta">2019 · <strong>Young-An Kim</strong>, John R. Hipp, Charis E. Kubrin · <em>SSR</em></div>
+          <div class="meta">2019 · <strong>Young-An Kim</strong>, John R. Hipp, Charis E. Kubrin · <em>Social Science Research</em></div>
           <h3>Fight or flight? Crime as a driving force in business failure and mobility</h3>
-          <p class="abstract">Examining how neighborhood crime impacts business survival and mobility.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.ssresearch.2019.04.010" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2019">
-          <div class="meta">2019 · Charis E Kubrin, <strong>Young-An Kim</strong>, John R. Hipp · <em>JRCD</em></div>
+          <div class="meta">2019 · Charis E. Kubrin, <strong>Young-An Kim</strong>, John R. Hipp · <em>Journal of Research in Crime and Delinquency</em></div>
           <h3>Institutional completeness and crime rates in immigrant neighborhoods</h3>
-          <p class="abstract">Investigating institutional completeness theory in Southern California region.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/0022427818799125" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2019">
           <div class="meta">2019 · John R. Hipp, <strong>Young-An Kim</strong> · <em>Journal of Criminal Justice</em></div>
           <h3>Explaining temporal and spatial dimensions of robbery</h3>
-          <p class="abstract">Exploring environment relationships with crime at different times of day.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.jcrimjus.2018.10.005" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
 
         <article class="pub" data-year="2018">
           <div class="meta">2018 · Charis E. Kubrin, John R. Hipp, <strong>Young-An Kim</strong> · <em>JQC</em></div>
           <h3>Different than the sum of its parts: Unique impacts of immigrant groups</h3>
-          <p class="abstract">Unpacking immigration diversity across Southern California neighborhoods.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1007/s10940-016-9320-y" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2018">
           <div class="meta">2018 · <strong>Young-An Kim</strong> · <em>JQC</em></div>
           <h3>Structural characteristics of place and crime in street segments</h3>
-          <p class="abstract">Proposing methods for apportioning census data to street segments.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1007/s10940-016-9323-8" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2018">
           <div class="meta">2018 · <strong>Young-An Kim</strong>, John R. Hipp · <em>Crime & Delinquency</em></div>
           <h3>Physical boundaries and city boundaries: consequences for crime</h3>
-          <p class="abstract">Studying highways, parks, rivers, and city boundaries on street segments.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1177/0011128716687756" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
-        </article>
-
-        <article class="pub" data-year="2017">
-          <div class="meta">2017 · John R. Hipp, James C. Wo, <strong>Young-An Kim</strong> · <em>SSR</em></div>
-          <h3>Studying neighborhood crime across different macro spatial scales</h3>
-          <p class="abstract">Assessing scales in SF, Honolulu, LA, and Sacramento for robbery rates.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.ssresearch.2017.08.007" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2017">
           <div class="meta">2017 · John R. Hipp, <strong>Young-An Kim</strong> · <em>JQC</em></div>
           <h3>Measuring crime concentration across cities of varying sizes</h3>
-          <p class="abstract">Assessing concentration levels across different types of macro units.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1007/s10940-016-9328-3" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
-
         <article class="pub" data-year="2016">
           <div class="meta">2016 · S. E. Grineski, T. W. Collins, <strong>Young-An Kim</strong> · <em>Journal of Public Health</em></div>
           <h3>Individual acculturation and neighborhood ethnic density</h3>
-          <p class="abstract">Predicting Hispanic children's respiratory health in US-Mexican border metropolis.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1093/pubmed/fdv086" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2015">
-          <div class="meta">2015 · Y. J. McDonald, S. E. Grineski, T. W. Collins, <strong>Young-An Kim</strong> · <em>SSM</em></div>
+          <div class="meta">2015 · Y. J. McDonald, S. E. Grineski, <strong>Young-An Kim</strong> · <em>Social Science & Medicine</em></div>
           <h3>A scalable climate health justice assessment model</h3>
-          <p class="abstract">Assessing and projecting incidence and treatment costs for climate-linked diseases.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.socscimed.2014.10.032" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
         <article class="pub" data-year="2014">
           <div class="meta">2014 · <strong>Young-An Kim</strong>, T. W. Collins, S. E. Grineski · <em>Health & Place</em></div>
           <h3>Neighborhood context and the Hispanic health paradox</h3>
-          <p class="abstract">Testing immigrant enclaves health benefits in El Paso based on individual factors.</p>
-          <div style="margin-top:15px;"><a href="https://doi.org/10.1016/j.healthplace.2014.01.006" target="_blank" class="btn" style="font-size:0.85rem;">DOI Link</a></div>
         </article>
       </div>
     </section>
 
     <section id="teaching">
-      <h2>Teaching</h2>
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-        <div class="card"><h4>Crime Hotspots</h4><p class="muted">Spatial variation, situational explanations, and milestones in place-level crime theory.</p><a href="https://github.com/youngan-kim/CCJ4070" target="_blank">Syllabus →</a></div>
-        <div class="card"><h4>Individual & Society</h4><p class="muted">Historical development of cities and theories of urban space and future cities.</p><a href="https://github.com/youngan-kim/CCJ4031" target="_blank">Syllabus →</a></div>
-        <div class="card"><h4>Intro to Crime Analysis</h4><p class="muted">Role of analysts, SARA model, and technologies like Real Time Crime Centers.</p><a href="https://github.com/youngan-kim/CJE4732" target="_blank">Syllabus →</a></div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="card" style="text-align:center; padding: 60px 20px;">
-        <h2>Get in Touch</h2>
-        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom: 20px;">
-          <button class="btn primary" onclick="copyEmail()">Copy Email Address</button>
-          <a class="btn" href="https://linkedin.com/in/young-an-kim-b354aa37a/" target="_blank">LinkedIn</a>
-          <a class="btn" href="https://github.com/youngan-kim" target="_blank">GitHub</a>
+      <div class="head"><h2>Teaching</h2></div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:20px;">
+        <div class="card">
+          <h4 style="margin-top:0;">Crime Hotspots</h4>
+          <p class="muted" style="font-size:0.9rem;">공간적 범죄 발생의 원인과 핫스팟 분석 기법을 다룹니다.</p>
+          <a href="https://github.com/youngan-kim/CCJ4070" target="_blank">Syllabus →</a>
         </div>
-        <p style="color:var(--muted);">308A Criminology Bldg, Florida State University</p>
+        <div class="card">
+          <h4 style="margin-top:0;">Intro to Crime Analysis</h4>
+          <p class="muted" style="font-size:0.9rem;">SARA 모델과 RTCC 기술을 활용한 현대적 범죄 분석을 배웁니다.</p>
+          <a href="https://github.com/youngan-kim/CJE4732" target="_blank">Syllabus →</a>
+        </div>
       </div>
     </section>
 
-    <footer><p>&copy; <span id="year-now"></span> Young-An Kim. Florida State University.</p></footer>
+    <section id="contact" style="text-align:center;">
+      <div class="card" style="padding:50px;">
+        <h2>Connect with Me</h2>
+        <p style="margin-bottom:30px;">연구 협업이나 공간 통계 분석 관련 문의는 언제나 환영합니다.</p>
+        <div style="display:flex; justify-content:center; gap:15px; flex-wrap:wrap;">
+          <button class="btn" onclick="copyEmail()">Copy Email Address</button>
+          <a class="btn" style="background:#0a66c2;" href="https://linkedin.com/in/young-an-kim-b354aa37a/" target="_blank">LinkedIn</a>
+          <a class="btn" style="background:#24292f;" href="https://github.com/youngan-kim" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; <span id="year-now"></span> Young-An Kim. Florida State University.</p>
+    </footer>
   </main>
 
-  <div id="toast" class="toast">Email address copied!</div>
+  <div id="toast" class="toast">Email Copied to Clipboard!</div>
 
   <script>
     document.getElementById('year-now').textContent = new Date().getFullYear();
+
     function filterPubs() {
       const q = document.getElementById('q').value.toLowerCase();
       const year = document.getElementById('year').value;
-      document.querySelectorAll('.pub').forEach(el => {
-        const text = el.innerText.toLowerCase();
-        const y = el.getAttribute('data-year');
-        el.style.display = (text.includes(q) && (year === 'all' || year === y)) ? '' : 'none';
+      const pubs = document.querySelectorAll('.pub');
+      pubs.forEach(p => {
+        const text = p.innerText.toLowerCase();
+        const y = p.getAttribute('data-year');
+        p.style.display = (text.includes(q) && (year === 'all' || year === y)) ? 'block' : 'none';
       });
     }
+
     function copyEmail() {
       navigator.clipboard.writeText("youngan.kim@fsu.edu").then(() => {
         const t = document.getElementById('toast');
@@ -436,6 +343,8 @@
         setTimeout(() => t.style.display = 'none', 2000);
       });
     }
+
+    // Initialize Year Filter
     const yearSel = document.getElementById('year');
     const years = [...new Set([...document.querySelectorAll('.pub')].map(p => p.getAttribute('data-year')))].sort((a,b)=>b-a);
     years.forEach(y => {
