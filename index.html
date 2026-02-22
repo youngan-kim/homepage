@@ -271,39 +271,6 @@
   <h3 style="margin: 5px 0;">Structural & Spatial Dynamics</h3>
   <div id="research-network"></div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const data = {
-      nodes: [
-        {id: "Young-An Kim", grp: 1, r: 12}, {id: "Structural Characteristics", grp: 2, r: 9},
-        {id: "Spatial Patterns", grp: 2, r: 9}, {id: "Neighborhood Crime", grp: 2, r: 8},
-        {id: "Machine Learning", grp: 3, r: 7}, {id: "Network Analysis", grp: 3, r: 7},
-        {id: "Built Environment", grp: 4, r: 6}, {id: "Immigration & Crime", grp: 4, r: 6},
-        {id: "NYC", grp: 5, r: 6}, {id: "San Francisco", grp: 5, r: 6}
-      ],
-      links: [
-        {source: "Young-An Kim", target: "Structural Characteristics"}, {source: "Young-An Kim", target: "Spatial Patterns"},
-        {source: "Structural Characteristics", target: "Neighborhood Crime"}, {source: "Spatial Patterns", target: "Machine Learning"},
-        {source: "Spatial Patterns", target: "Network Analysis"}, {source: "Neighborhood Crime", target: "Built Environment"},
-        {source: "Neighborhood Crime", target: "NYC"}, {source: "Spatial Patterns", target: "San Francisco"},
-        {source: "Young-An Kim", target: "Immigration & Crime"}
-      ]
-    };
-    const container = document.getElementById('research-network');
-    const width = container.clientWidth, height = 350;
-    const svg = d3.select("#research-network").append("svg").attr("width", "100%").attr("height", height);
-    const sim = d3.forceSimulation(data.nodes).force("link", d3.forceLink(data.links).id(d => d.id).distance(80)).force("charge", d3.forceManyBody().strength(-200)).force("center", d3.forceCenter(width / 2, height / 2));
-    const link = svg.append("g").selectAll("line").data(data.links).join("line").attr("class", "link");
-    const node = svg.append("g").selectAll("circle").data(data.nodes).join("circle").attr("r", d => d.r * 1.8).attr("fill", d => d.grp === 1 ? "#0284c7" : "#0ea5e9");
-    const label = svg.append("g").selectAll("text").data(data.nodes).join("text").attr("class", "node-label").attr("dy", 4).attr("text-anchor", "middle").text(d => d.id);
-    sim.on("tick", () => {
-      link.attr("x1", d => d.source.x).attr("y1", d => d.source.y).attr("x2", d => d.target.x).attr("y2", d => d.target.y);
-      node.attr("cx", d => d.x).attr("cy", d => d.y);
-      label.attr("x", d => d.x).attr("y", d => d.y);
-    });
-  });
-</script>
     
     <section id="about">
       <div class="head"><h2>About Me</h2></div>
