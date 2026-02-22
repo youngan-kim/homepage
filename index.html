@@ -790,5 +790,45 @@
     document.getElementById('year-now').textContent = new Date().getFullYear();
   </script>
 
+
+
+  <nav id="floating-year-nav" class="year-nav"></nav>
+
+<script>
+  function setupYearNav() {
+    const nav = document.getElementById('floating-year-nav');
+    // 모든 pub 섹션에서 중복되지 않는 연도 추출
+    const years = [...new Set([...document.querySelectorAll('.pub')].map(el => el.getAttribute('data-year')))].sort((a,b)=>b-a);
+    
+    years.forEach(year => {
+      const link = document.createElement('a');
+      link.href = '#';
+      link.className = 'year-link';
+      link.textContent = year;
+      link.onclick = (e) => {
+        e.preventDefault();
+        // 해당 연도의 첫 번째 논문 위치로 부드럽게 이동
+        const firstPubOfYear = document.querySelector(`.pub[data-year="${year}"]`);
+        window.scrollTo({ top: firstPubOfYear.offsetTop - 100, behavior: 'smooth' });
+      };
+      nav.appendChild(link);
+    });
+
+    // 스크롤 감지해서 현재 연도 버튼 강조 (Active State)
+    window.addEventListener('scroll', () => {
+      let currentYear = "";
+      document.querySelectorAll('.pub').forEach(pub => {
+        if (window.scrollY >= pub.offsetTop - 150) {
+          currentYear = pub.getAttribute('data-year');
+        }
+      });
+      
+      document.querySelectorAll('.year-link').forEach(link => {
+        link.classList.toggle('active', link.textContent === currentYear);
+      });
+    });
+  }
+  document.addEventListener('DOMContentLoaded', setupYearNav);
+</script>
   </body>
 </html>
