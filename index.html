@@ -177,28 +177,38 @@
   gap: 16px;
   padding: 12px 0;
   border-bottom: 1px solid var(--chip-border);
+  align-items: center; /* 세로 중앙 정렬 */
+  white-space: nowrap; /* 기본적으로 텍스트가 줄바꿈되지 않도록 설정 */
 }
-.news-item:last-child { border-bottom: none; }
+
 .news-date {
   flex-shrink: 0;
-  width: 100px;
+  width: 80px; /* 날짜 폭 최적화 */
   font-weight: 700;
   color: var(--brand);
   font-size: 0.9rem;
 }
+
 .news-content {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis; /* 내용이 너무 길면 ... 처리 (선택 사항) */
+  white-space: normal;    /* 날짜는 고정하되, 실제 내용은 필요시 줄바꿈 허용 */
   font-size: 0.95rem;
   color: var(--text);
 }
+
+/* 배지가 텍스트와 붙어 한 덩어리로 인식되게 함 */
 .news-badge {
   display: inline-block;
+  flex-shrink: 0; /* 배지가 찌그러지지 않게 */
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   margin-right: 8px;
-  vertical-align: middle;
+  white-space: nowrap;
 }
 .badge-pub { background: var(--brand-weak); color: var(--brand); }
 .badge-grant { background: #fef3c7; color: #d97706; }
@@ -303,7 +313,7 @@
     <div class="news-item">
       <div class="news-date">2026.06</div>
       <div class="news-content">
-        <span class="news-badge badge-grant">Talk</span>
+        <span class="news-badge badge-talk">Talk</span>
         I will be giving a talk at The University of Tokyo in Japan.
       </div>
     </div>
@@ -311,7 +321,7 @@
     <div class="news-item">
       <div class="news-date">2026.04</div>
       <div class="news-content">
-        <span class="news-badge badge-grant">Talk</span>
+        <span class="news-badge badge-talk">Talk</span>
         I will be giving a talk at University of Texas at El Paso (UTEP) Criminal Justice Symposium on temporal exclusivity of crime in place.
       </div>
     </div>
@@ -319,7 +329,7 @@
     <div class="news-item">
       <div class="news-date">2026.04</div>
       <div class="news-content">
-        <span class="news-badge badge-talk">Editorial</span>
+        <span class="news-badge badge-grant">Editorial</span>
         I am happy to join the <em>Journal of Quantitative Criminology</em> as an Associate Editor. 
       </div>
     </div>
