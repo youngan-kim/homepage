@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z5E4QSTR2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1Z5E4QSTR2', { 'anonymize_ip': true });
+  </script>
+  
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publications | Young-An Kim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  
+  <style>
+    :root{
+      --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --brand-weak:#e0f2fe; --accent:#0ea5e9;
+      --link:#0369a1; --chip:#f1f5f9; --chip-border:#e2e8f0; --ok:#22c55e; --warn:#f59e0b;
+      --maxw:1080px; --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--link);text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+    header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(10px);background:rgba(248,250,252,.8);border-bottom:1px solid var(--chip-border);z-index:40}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:14px 28px}
+    .nav a.brand{display:flex;gap:12px;align-items:center;font-weight:700;color:var(--text)}
+    .nav .links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav .links a{padding:6px 10px;border-radius:10px;color:var(--muted);font-weight:500}
+    .nav .links a:hover{background:var(--chip);color:var(--text)}
+    .nav .links a.active { color: var(--brand); font-weight: 700; }
+
+    /* Publications Page Specific Style */
+    section{padding:40px 0}
+    section .head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom: 24px;border-bottom: 2px solid var(--chip);padding-bottom: 8px}
+    section h2{margin:0;font-size:2rem;color:var(--text)}
+    
+    .grid{display:grid;gap:16px}
+    .pub { display: flex; gap: 24px; padding: 24px; background: #fff; border-radius: 14px; border: 1px solid var(--chip-border); margin-bottom: 16px; transition: 0.2s; align-items: flex-start; }
+    .pub:hover{border-color:var(--brand);box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05)}
+    .pub-thumb { flex-shrink: 0; width: 160px; height: 160px; border-radius: 10px; overflow: hidden; border: 1px solid var(--chip-border); background: var(--chip); }
+    .pub-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .pub-content { flex-grow: 1; }
+    .pub h3{margin:0 0 6px;font-size:1.1rem;color:var(--text); line-height: 1.4;}
+    .pub .meta{font-size:.95rem;color:var(--brand);font-weight:500; margin-bottom: 8px;}
+    .pub .muted { font-size: 0.9rem; color: var(--muted); }
+    .btn{background:#fff;border:1px solid var(--chip-border);padding:8px 16px;border-radius:10px;font-size:0.85rem;cursor:pointer;font-weight:600;display:inline-block; margin-top: 12px;}
+    .btn:hover { background: var(--chip); }
+
+    /* Floating Nav Style */
+    .year-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 8px; z-index: 100; }
+    .year-link { background: #fff; border: 1px solid var(--chip-border); color: var(--muted); width: 45px; height: 35px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 0.75rem; font-weight: 700; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); cursor: pointer; }
+    .year-link:hover, .year-link.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+
+    .card{background:var(--panel);border:1px solid var(--chip-border);border-radius:var(--radius);box-shadow:0 4px 6px -1px rgba(0,0,0,0.05)}
+    .pub-controls{display:flex;gap:10px;flex-wrap:wrap}
+    input[type="search"], select{background:#fff;border:1px solid var(--chip-border);padding:10px 12px;border-radius:12px;font-size:0.9rem}
+    
+    @media (max-width:850px){
+      .pub{flex-direction:column}.pub-thumb{width:100%;height:200px}.year-nav{display:none}
+    }
+    footer{margin:80px 0; color:var(--muted); text-align:center; font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html"><span>🎓</span><span>Young-An Kim</span></a>
+      <div class="links">
+        <a href="index.html#about">About me</a>
+        <a href="publications.html" class="active">Publication</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#news">News</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section id="pubs">
+      <div class="head">
+        <h2>Publications</h2>
+        <div class="pub-controls">
+          <input id="q" type="search" placeholder="Title·Author·Keyword" oninput="filterPubs()" />
+          <select id="year" onchange="filterPubs()"><option value="all">All years</option></select>
+        </div>
+      </div>
+
+      <div class="grid">
+        <article class="pub" data-year="2026">
+          <div class="pub-thumb"><img src="pics/pj.png" alt="Map"></div>
+          <div class="pub-content">
+            <h3>Evolving Technologies in Law Enforcement: Documenting the Continued Growth of Real-Time Crime Centers</h3>
+            <div class="meta">Alex Billmeier, ..., <strong>Young-An Kim</strong>, et al., <em>The Police Journal,</em> 2026</div>
+            <p class="muted">Examines the development of RTCCs and their operational characteristics.</p>
+            <div class="actions"><a class="btn" href="https://doi.org/10.1177/0032258X261436634" target="_blank">Link</a></div>
+          </div>
+        </article>
+
+        <article class="pub" data-year="2026">
+          <div class="pub-thumb"><img src="pics/simu.png" alt="Map"></div>
+          <div class="pub-content">
+            <h3>Spatial Modeling in Neighborhood and Crime Studies: An Empirical Examination</h3>
+            <div class="meta"><strong>Young-An Kim</strong>, Jongwoo Jeong, <em>Crime & Delinquency,</em> 2026</div>
+            <p class="muted">Discusses spatial dependence methodological advantages in neighborhood studies.</p>
+            <div class="actions"><a class="btn" href="https://doi.org/10.1177/00111287261416406" target="_blank">Link</a></div>
+          </div>
+        </article>
+
+        <article class="pub" data-year="2026">
+          <div class="pub-thumb"><img src="pics/broker_crime.png" alt="Map"></div>
+          <div class="pub-content">
+            <h3>Understanding the Spatial Co-Occurrence of Different Crime Types and Brokerage Crime in NYC</h3>
+            <div class="meta"><strong>Young-An Kim</strong>, Keungoui Kim, <em>AJCJ,</em> 2026</div>
+            <p class="muted">Identifies brokerage crime types within spatial co-occurrence networks.</p>
+            <div class="actions"><a class="btn" href="https://link.springer.com/article/10.1007/s12103-025-09887-8" target="_blank">Link</a></div>
+          </div>
+        </article>
+
+        <article class="pub" data-year="2014">
+          <div class="pub-thumb"><img src="pics/elpaso.png" alt="Map"></div>
+          <div class="pub-content">
+            <h3>Hispanic health paradox: Immigrant density on wheezing</h3>
+            <div class="meta"><strong>Young-An Kim</strong>, Timothy W. Collins, Sara E. Grineski, 2014</div>
+            <p class="muted">Testing if immigrant enclaves provide differential respiratory benefits.</p>
+            <div class="actions"><a class="btn" href="https://doi.org/10.1016/j.healthplace.2014.01.006" target="_blank">Link</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year-now"></span> Young-An Kim. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <nav id="floating-year-nav" class="year-nav"></nav>
+
+  <script>
+    document.getElementById('year-now').textContent = new Date().getFullYear();
+
+    function filterPubs(){
+      const q = document.getElementById('q').value.toLowerCase();
+      const year = document.getElementById('year').value;
+      document.querySelectorAll('.pub').forEach(el=>{
+        const text = el.innerText.toLowerCase();
+        const y = el.getAttribute('data-year');
+        el.style.display = (text.includes(q) && (year==='all' || year===y)) ? 'flex' : 'none';
+      })
+    }
+
+    function setupYearNav() {
+      const nav = document.getElementById('floating-year-nav');
+      const sel = document.getElementById('year');
+      const years = [...new Set([...document.querySelectorAll('.pub')].map(el => el.getAttribute('data-year')))].sort((a,b)=>b-a);
+      
+      years.forEach(year => {
+        // Dropdown
+        const o=document.createElement('option'); o.value=year; o.textContent=year; sel.appendChild(o);
+        // Floating links
+        const link = document.createElement('a'); link.className = 'year-link'; link.textContent = year;
+        link.onclick = () => {
+          const target = document.querySelector(`.pub[data-year="${year}"]`);
+          window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+        };
+        nav.appendChild(link);
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      let currentYear = "";
+      document.querySelectorAll('.pub').forEach(pub => {
+        if (window.scrollY >= pub.offsetTop - 150) currentYear = pub.getAttribute('data-year');
+      });
+      document.querySelectorAll('.year-link').forEach(link => {
+        link.classList.toggle('active', link.textContent === currentYear);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', setupYearNav);
+  </script>
+</body>
+</html>
