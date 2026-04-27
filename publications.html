@@ -82,21 +82,26 @@
   <main class="wrap">
     <section id="pubs">
       <div class="head">
-        <div class="head" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
-  <div style="display: flex; align-items: center; gap: 15px;">
-    <h2 style="margin: 0;">Publications</h2>
-    <a class="btn" href="https://scholar.google.com/citations?user=kQK2OdAAAAAJ&hl=en" target="_blank" rel="noreferrer" style="display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; font-size: 0.8rem; background-color: var(--chip);">
-      Google Scholar <span style="font-size: 1rem;">↗</span>
-    </a>
-  </div>
+      <div class="head" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; margin-bottom: 24px; border-bottom: 2px solid var(--chip); padding-bottom: 12px;">
+      
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <h2 style="margin: 0; font-size: 2rem;">Publications</h2>
+        <a class="btn" href="https://scholar.google.com/citations?user=kQK2OdAAAAAJ&hl=en" target="_blank" rel="noreferrer" 
+           style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; font-size: 0.85rem; background-color: var(--chip); border: 1px solid var(--chip-border); border-radius: 10px; font-weight: 600; text-decoration: none; color: var(--text);">
+          Google Scholar <span style="font-size: 1rem; line-height: 1;">↗</span>
+        </a>
+      </div>
 
-  <div class="pub-controls" style="display: flex; gap: 10px;">
-    <input id="q" type="search" placeholder="Search Title/Keyword..." oninput="filterPubs()" style="width: 200px;" />
-    <select id="year" onchange="filterPubs()">
-      <option value="all">All years</option>
-    </select>
-  </div>
-</div>
+      <div class="pub-controls" style="display: flex; gap: 10px;">
+        <input id="q" type="search" placeholder="Search Title/Keyword..." oninput="filterPubs()" 
+               style="padding: 10px 14px; border-radius: 12px; border: 1px solid var(--chip-border); font-size: 0.9rem; width: 220px;" />
+        <select id="year" onchange="filterPubs()" 
+                style="padding: 10px; border-radius: 12px; border: 1px solid var(--chip-border); font-size: 0.9rem; background: #fff; cursor: pointer;">
+          <option value="all">All years</option>
+        </select>
+      </div>
+    </div>
+        
         <h2>Publications</h2>
         <div class="pub-controls">
           <input id="q" type="search" placeholder="Title·Author·Keyword" oninput="filterPubs()" />
