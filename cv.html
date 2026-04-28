@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z5E4QSTR2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1Z5E4QSTR2', { 'anonymize_ip': true });
+  </script>
+  
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CV | Young-An Kim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  
+  <style>
+    :root{
+      --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --chip-border:#e2e8f0;
+      --maxw:1080px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0; height: 100%;}
+    body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text); display: flex; flex-direction: column;}
+    a{text-decoration:none}
+    
+    header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(10px);background:rgba(248,250,252,.8);border-bottom:1px solid var(--chip-border);z-index:40}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:14px 28px}
+    .nav a.brand{display:flex;gap:12px;align-items:center;font-weight:700;color:var(--text)}
+    .nav .links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav .links a{padding:6px 10px;border-radius:10px;color:var(--muted);font-weight:500}
+    .nav .links a:hover{background:#f1f5f9;color:var(--text)}
+    .nav .links a.active { color: var(--brand); font-weight: 700; }
+
+    /* PDF Container */
+    .cv-container { flex: 1; display: flex; flex-direction: column; padding: 20px; max-width: var(--maxw); margin: 0 auto; width: 100%; }
+    .cv-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+    .cv-header h2 { margin: 0; font-size: 1.5rem; }
+    .btn-download { background: var(--brand); color: #fff; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+    
+    /* PDF Viewer Area */
+    .pdf-viewer { flex: 1; border: 1px solid var(--chip-border); border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    iframe { width: 100%; height: 100%; border: none; }
+
+    footer{padding: 20px 0; color:var(--muted); text-align:center; font-size:0.9rem}
+    
+    @media (max-width: 600px) {
+      .cv-container { padding: 10px; }
+      .pdf-viewer { height: 500px; } /* 모바일에서는 높이 고정 */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html"><span>🎓</span><span>Young-An Kim</span></a>
+      <div class="links">
+        <a href="index.html#about">About me</a>
+        <a href="index.html#news">News</a>
+        <a href="publications.html">Publication</a>
+        <a href="cv.html" class="active">CV</a> 
+        <a href="contact.html">Contact</a>
+        
+      </div>
+    </nav>
+  </header>
+
+  <main class="cv-container">
+    <div class="cv-header">
+      <h2>Curriculum Vitae</h2>
+      <a href="CV_KIM.pdf" class="btn-download" download>Download PDF</a>
+    </div>
+
+    <div class="pdf-viewer">
+      <iframe src="CV_KIM.pdf#toolbar=0" type="application/pdf">
+        <p>이 브라우저는 PDF 뷰어를 지원하지 않습니다. <a href="CV_KIM.pdf">여기에서 다운로드</a>하여 확인하세요.</p>
+      </iframe>
+    </div>
+  </main>
+
+  <footer>
+    <p>© <span id="year-now"></span> Young-An Kim. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('year-now').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
