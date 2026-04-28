@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z5E4QSTR2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1Z5E4QSTR2', { 'anonymize_ip': true });
+  </script>
+  
+  <meta charset="utf-8" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Young-An Kim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  
+  <style>
+    :root{
+      --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --brand-weak:#e0f2fe; --accent:#0ea5e9;
+      --link:#0369a1; --chip:#f1f5f9; --chip-border:#e2e8f0; --ok:#22c55e; --warn:#f59e0b;
+      --maxw:800px; --radius:18px; /* Contact 페이지는 내용을 가운데 모으기 위해 폭을 좁게 설정 */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--link);text-decoration:none}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:28px}
+    header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(10px);background:rgba(248,250,252,.8);border-bottom:1px solid var(--chip-border);z-index:40}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:1080px;margin:0 auto;padding:14px 28px}
+    .nav a.brand{display:flex;gap:12px;align-items:center;font-weight:700;color:var(--text)}
+    .nav .links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav .links a{padding:6px 10px;border-radius:10px;color:var(--muted);font-weight:500}
+    .nav .links a:hover{background:var(--chip);color:var(--text)}
+    .nav .links a.active { color: var(--brand); font-weight: 700; }
+
+    /* Contact Page Style */
+    section{padding:60px 0}
+    .head{margin-bottom: 32px; border-bottom: 2px solid var(--chip); padding-bottom: 12px;}
+    .head h2{margin:0; font-size: 2.2rem; color: var(--text); }
+    .card{background:var(--panel); border:1px solid var(--chip-border); border-radius:var(--radius); box-shadow:0 4px 6px -1px rgba(0,0,0,0.05); padding: 32px; }
+    
+    .contact-grid { display: grid; gap: 24px; }
+    .contact-item { display: flex; gap: 16px; align-items: flex-start; }
+    .contact-icon { font-size: 1.5rem; width: 40px; }
+    .contact-info h3 { margin: 0 0 4px; font-size: 1.1rem; color: var(--text); }
+    .contact-info p { margin: 0; color: var(--muted); }
+
+    .btn{background:#fff; border:1px solid var(--chip-border); padding:6px 12px; border-radius:8px; font-size:0.85rem; cursor:pointer; font-weight:600; transition: 0.2s;}
+    .btn:hover { background: var(--brand-weak); color: var(--brand); border-color: var(--brand); }
+    
+    .toast{position:fixed;right:16px;bottom:16px;background:var(--text);color:#fff;padding:12px 14px;border-radius:12px;display:none;z-index:100}
+    footer{margin-top: 80px; color:var(--muted); text-align:center; font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html"><span>🎓</span><span>Young-An Kim</span></a>
+      <div class="links">
+        <a href="index.html#about">About me</a>
+        <a href="publications.html">Publication</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="index.html#news">News</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="head">
+        <h2>Contact</h2>
+      </div>
+
+      <div class="card">
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div class="contact-info">
+              <h3>Email</h3>
+              <p id="email" data-email="youngan.kim@fsu.edu">
+                youngan.kim@fsu.edu 
+                <button class="btn" style="margin-left:8px" onclick="copyEmail()">Copy</button>
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🏢</div>
+            <div class="contact-info">
+              <h3>Office</h3>
+              <p>308A Criminology Bldg<br>Florida State University</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="contact-info">
+              <h3>Profiles</h3>
+              <p style="display:flex; gap:12px; margin-top:8px">
+                <a href="https://linkedin.com/in/young-an-kim-b354aa37a/" target="_blank" class="btn">LinkedIn</a>
+                <a href="https://github.com/youngan-kim" target="_blank" class="btn">GitHub</a>
+                <a href="https://scholar.google.com/citations?user=kQK2OdAAAAAJ" target="_blank" class="btn">Google Scholar</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year-now"></span> Young-An Kim. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    document.getElementById('year-now').textContent = new Date().getFullYear();
+
+    function copyEmail(){
+      const email = document.getElementById('email').dataset.email;
+      navigator.clipboard.writeText(email).then(()=>{
+        const t = document.getElementById('toast');
+        t.style.display='block';
+        t.innerText = 'Email address has been copied: '+email;
+        setTimeout(()=>t.style.display='none',2200);
+      })
+    }
+  </script>
+</body>
+</html>
