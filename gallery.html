@@ -50,6 +50,35 @@
       .gallery-img { height: 300px; }
     }
     footer{margin:80px 0; color:var(--muted); text-align:center; font-size:0.9rem}
+
+    .gallery-item { 
+      background: var(--panel); 
+      border-radius: var(--radius); 
+      overflow: hidden; 
+      border: 1px solid var(--chip-border); 
+      transition: transform 0.2s; 
+      
+      /* 여기에 추가: 사진 로딩 전 배경색과 최소 높이 */
+      background-color: #f1f5f9; 
+      min-height: 400px;
+    }
+
+    .gallery-img { 
+      width: 100%; 
+      height: 400px; 
+      object-fit: cover; 
+      display: block; 
+      border-bottom: 1px solid var(--chip-border); 
+      
+      /* 여기에 추가: 부드럽게 나타나는 효과 */
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    /* 스타일 태그 끝나기 직전에 추가 */
+    .gallery-img:not([src]) {
+      opacity: 0;
+    }
+
   </style>
   
 </head>
@@ -79,7 +108,7 @@
 
 
       <article class="gallery-item">
-          <img src="images/IMG_1277.JPG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_1277.JPG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Shinjuku Kabukicho</p>
             <span>Tokyo, Japan · 2019</span>
@@ -87,7 +116,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/IMG_1625.JPG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_1625.JPG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Tokyo Skytree</p>
             <span>Tokyo, Japan · 2019</span>
@@ -95,7 +124,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/IMG_1932.JPG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_1932.JPG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Odaiba</p>
             <span>Tokyo, Japan · 2019</span>
@@ -103,7 +132,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/IMG_3130.JPG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_3130.JPG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>MLB Angels Stadium</p>
             <span>Anaheim, CA · 2017</span>
@@ -112,7 +141,7 @@
 
           
       <article class="gallery-item">
-          <img src="images/IMG_3164.JPG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_3164.JPG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Las Vegas</p>
             <span>Las Vegas, NV · 2017</span>
@@ -121,7 +150,7 @@
 
         
       <article class="gallery-item">
-          <img src="images/IMG_3264.PNG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_3264.PNG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Grand Canyon</p>
             <span>Grand Canyon National Park, AZ · 2017</span>
@@ -129,7 +158,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/IMG_3281.JPG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_3281.JPG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Navajo Bridge</p>
             <span>Coconino, AZ · 2017</span>
@@ -137,7 +166,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/IMG_4181.JPG" alt="Austin" class="gallery-img">
+          <img src="images/IMG_4181.JPG" alt="Austin" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Solvang, CA · 2019</span>
@@ -145,7 +174,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/IMG_4557.JPG" alt="Travel" class="gallery-img">
+          <img src="images/IMG_4557.JPG" alt="Travel" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Anchorage, AK · 2018</span>
@@ -153,7 +182,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/saitama.png" alt="Saitama" class="gallery-img">
+          <img src="images/saitama.png" alt="Saitama" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Saitama, Japan · 2019</span>
@@ -161,7 +190,7 @@
         </article>
         
       <article class="gallery-item">
-          <img src="images/seoul.png" alt="Seoul" class="gallery-img">
+          <img src="images/seoul.png" alt="Seoul" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Gwanghwamoon</p>
             <span>Seoul, Korea · 2019</span>
@@ -169,7 +198,7 @@
         </article>
 
         <article class="gallery-item">
-          <img src="images/dubuque.png" alt="Dubuque" class="gallery-img">
+          <img src="images/dubuque.png" alt="Dubuque" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Dubuque, IA · 2019</span>
@@ -177,7 +206,7 @@
         </article>
         
         <article class="gallery-item">
-          <img src="images/panama.png" alt="Panama City Beach" class="gallery-img">
+          <img src="images/panama.png" alt="Panama City Beach" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Panama City Beach, FL · 2019</span>
@@ -185,7 +214,7 @@
         </article>
         
         <article class="gallery-item">
-          <img src="images/6.png" alt="Austin" class="gallery-img">
+          <img src="images/6.png" alt="Austin" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Laguna Beach, CA · 2018</span>
@@ -193,7 +222,7 @@
         </article>
         
         <article class="gallery-item">
-          <img src="images/5.png" alt="Austin" class="gallery-img">
+          <img src="images/5.png" alt="Austin" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Austin, TX · 2018</span>
@@ -201,7 +230,7 @@
         </article>
 
         <article class="gallery-item">
-          <img src="images/4.png" alt="San Diego" class="gallery-img">
+          <img src="images/4.png" alt="San Diego" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>San Diego, CA · 2018</span>
@@ -209,7 +238,7 @@
         </article>
 
         <article class="gallery-item">
-          <img src="images/3.png" alt="Seattle" class="gallery-img">
+          <img src="images/3.png" alt="Seattle" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>Travel</p>
             <span>Seattle, WA · 2018</span>
@@ -217,7 +246,7 @@
         </article>
 
         <article class="gallery-item">
-          <img src="images/1.png" alt="ASC 2017" class="gallery-img">
+          <img src="images/1.png" alt="ASC 2017" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>ASC 2017</p>
             <span>Philadelphia, PA · 2017</span>
@@ -225,7 +254,7 @@
         </article>
 
         <article class="gallery-item">
-          <img src="images/2.png" alt="ASC 2017" class="gallery-img">
+          <img src="images/2.png" alt="ASC 2017" class="gallery-img" loading="lazy">
           <div class="gallery-caption">
             <p>ASC 2017</p>
             <span>Philadelphia, PA · 2017</span>
