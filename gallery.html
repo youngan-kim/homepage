@@ -36,32 +36,23 @@
     .head{margin-bottom: 32px; border-bottom: 2px solid var(--chip-border); padding-bottom: 12px;}
     .head h2{margin:0; font-size: 2rem;}
 
-    /* Gallery Grid */
-   .gallery-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); 
-    gap: 32px; 
-  }
+   /* 수정한 갤러리 그리드 (크게) */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 32px; }
+    .gallery-item { background: var(--panel); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--chip-border); transition: transform 0.2s; }
+    .gallery-item:hover { transform: translateY(-5px); }
+    .gallery-img { width: 100%; height: 400px; object-fit: cover; display: block; border-bottom: 1px solid var(--chip-border); }
+    .gallery-caption { padding: 16px; text-align: center; }
+    .gallery-caption p { margin: 0; font-size: 1rem; font-weight: 600; color: var(--text); }
+    .gallery-caption span { font-size: 0.85rem; color: var(--muted); display: block; margin-top: 4px; }
 
-  /* 2. 이 부분도 찾아서 아래 내용으로 교체하세요 */
-  .gallery-img { 
-    width: 100%; 
-    height: 400px; 
-    object-fit: cover; 
-    display: block; 
-    border-bottom: 1px solid var(--chip-border); 
-  }
-
-  /* 3. 스타일 맨 아래( </style> 직전)에 이 모바일 대응 코드를 추가하면 완벽합니다 */
-  @media (max-width: 500px) {
-    .gallery-grid { 
-      grid-template-columns: 1fr; 
+    @media (max-width: 500px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-img { height: 300px; }
     }
-    .gallery-img {
-      height: 300px;
-    }
-  }
-</style>
+    footer{margin:80px 0; color:var(--muted); text-align:center; font-size:0.9rem}
+  </style>
+  
+</head>
 </head>
 <body>
   <header>
