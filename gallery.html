@@ -16,52 +16,59 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
   
   <style>
-    :root{ --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --chip-border:#e2e8f0; --maxw:1080px; --radius:16px; }
+    :root{ --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --chip-border:#e2e8f0; --maxw:1200px; --radius:16px; }
     *{box-sizing:border-box}
     body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
     a{text-decoration:none}
+    
     header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(10px);background:rgba(248,250,252,.8);border-bottom:1px solid var(--chip-border);z-index:40}
-    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:14px 28px}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:1080px;margin:0 auto;padding:14px 28px}
     .nav a.brand{display:flex;gap:12px;align-items:center;font-weight:700;color:var(--text)}
     .nav .links{display:flex;gap:18px;flex-wrap:wrap}
     .nav .links a{padding:6px 10px;border-radius:10px;color:var(--muted);font-weight:500}
     .nav .links a:hover{background:#f1f5f9;color:var(--text)}
     .nav .links a.active { color: var(--brand); font-weight: 700; }
+
     .wrap{max-width:var(--maxw);margin:0 auto;padding:40px 28px}
     .head{margin-bottom: 32px; border-bottom: 2px solid var(--chip-border); padding-bottom: 12px;}
     .head h2{margin:0; font-size: 2rem;}
 
     /* 갤러리 그리드 */
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); gap: 32px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 24px; }
     .gallery-item { 
-      background: #f1f5f9; /* 로딩 전 배경색 */
+      background: #f1f5f9; 
       border-radius: var(--radius); 
       overflow: hidden; 
       border: 1px solid var(--chip-border); 
-      transition: transform 0.3s ease; 
-      min-height: 400px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .gallery-item:hover { transform: translateY(-5px); }
 
-    /* 이미지 초기 상태: 투명 */
     .gallery-img { 
-      width: 100%; height: 400px; object-fit: cover; display: block; 
+      width: 100%; height: 300px; object-fit: cover; display: block; 
       opacity: 0; 
       transform: scale(0.98);
       transition: opacity 0.8s ease-out, transform 0.8s ease-out; 
     }
-
-    /* 로드 완료 후 상태 */
     .gallery-img.loaded { opacity: 1; transform: scale(1); }
 
     .gallery-caption { padding: 16px; text-align: center; background: #fff; }
-    .gallery-caption p { margin: 0; font-size: 1rem; font-weight: 600; color: var(--text); }
-    .gallery-caption span { font-size: 0.85rem; color: var(--muted); display: block; margin-top: 4px; }
+    .gallery-caption p { margin: 0; font-size: 0.95rem; font-weight: 600; color: var(--text); }
+    .gallery-caption span { font-size: 0.8rem; color: var(--muted); display: block; margin-top: 4px; }
+
+    /* 라이트박스 (이미지 확대창) 스타일 */
+    #lightbox {
+      position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.9); display: none; align-items: center; justify-content: center;
+      cursor: zoom-out;
+    }
+    #lightbox img { max-width: 90%; max-height: 80%; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+    #lightbox-caption { position: absolute; bottom: 5%; color: #fff; text-align: center; width: 100%; }
 
     @media (max-width: 600px) {
       .gallery-grid { grid-template-columns: 1fr; }
-      .gallery-img { height: 300px; }
-      .gallery-item { min-height: 300px; }
+      .gallery-img { height: 250px; }
     }
     footer{margin:80px 0; color:var(--muted); text-align:center; font-size:0.9rem}
   </style>
@@ -93,13 +100,13 @@
         <article class="gallery-item"><img src="images/animal.JPG" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Animal Kingdom Disney World</p><span>Bay Lake, FL · 2023</span></div></article>
         <article class="gallery-item"><img src="images/epcot.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Epcot Disney World</p><span>Bay Lake, FL · 2023</span></div></article>
         <article class="gallery-item"><img src="images/epcot2.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Epcot Disney World</p><span>Bay Lake, FL · 2023</span></div></article>
-        <article class="gallery-item"><img src="images/jaxzoo.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Jacksonville Zoo</p><span>Jacksonville, FL · 2025</span></div></article> 
-        <article class="gallery-item"><img src="images/fujimt.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Mount Fuji</p><span>Minamitsuru, Japan · 2025</span></div></article> 
-        <article class="gallery-item"><img src="images/yonsei.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Yonsei University</p><span>Songdo, Korea · 2025</span></div></article> 
-        <article class="gallery-item"><img src="images/tlhmuseum.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Tallahassee Museum</p><span>Tallahassee, FL · 2025</span></div></article> 
-        <article class="gallery-item"><img src="images/uci.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>UC Irvine</p><span>Irvine, CA · 2019</span></div></article> 
-        <article class="gallery-item"><img src="images/ginza.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Ginza</p><span>Tokyo, Japan · 2023</span></div></article>  
-        <article class="gallery-item"><img src="images/seaside.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Grayton Beach State Park</p><span>Santa Rosa Beach, FL · 2025</span></div></article>  
+        <article class="gallery-item"><img src="images/jaxzoo.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Jacksonville Zoo</p><span>Jacksonville, FL · 2025</span></div></article>
+        <article class="gallery-item"><img src="images/fujimt.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Mount Fuji</p><span>Minamitsuru, Japan · 2025</span></div></article>
+        <article class="gallery-item"><img src="images/yonsei.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Yonsei University</p><span>Songdo, Korea · 2025</span></div></article>
+        <article class="gallery-item"><img src="images/tlhmuseum.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Tallahassee Museum</p><span>Tallahassee, FL · 2025</span></div></article>
+        <article class="gallery-item"><img src="images/uci.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>UC Irvine</p><span>Irvine, CA · 2019</span></div></article>
+        <article class="gallery-item"><img src="images/ginza.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Ginza</p><span>Tokyo, Japan · 2023</span></div></article>
+        <article class="gallery-item"><img src="images/seaside.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Grayton Beach State Park</p><span>Santa Rosa Beach, FL · 2025</span></div></article>
         <article class="gallery-item"><img src="images/legoland.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Legoland</p><span>Winter Haven, FL · 2023</span></div></article>
         <article class="gallery-item"><img src="images/kawagoe.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Kawagoe</p><span>Saitama, Japan · 2024</span></div></article>
         <article class="gallery-item"><img src="images/hgu.jpg" class="gallery-img" loading="lazy"><div class="gallery-caption"><p>Handong University</p><span>Pohang, Korea · 2024</span></div></article>
@@ -141,22 +148,42 @@
     <footer><p>© <span id="year-now"></span> Young-An Kim. All rights reserved.</p></footer>
   </main>
 
+  <div id="lightbox">
+    <img src="" alt="확대 이미지">
+    <div id="lightbox-caption"></div>
+  </div>
+
   <script>
-    // 1. 연도 설정
     document.getElementById('year-now').textContent = new Date().getFullYear();
 
-    // 2. 이미지 로드 감지 및 페이드인 효과
     document.addEventListener('DOMContentLoaded', function() {
       const images = document.querySelectorAll('.gallery-img');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = lightbox.querySelector('img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+
+      // 1. 페이드인 효과
       images.forEach(img => {
-        // 캐시에 이미 있는 경우
         if (img.complete) {
           img.classList.add('loaded');
         }
-        // 로드 완료 시 클래스 추가
         img.addEventListener('load', function() {
           img.classList.add('loaded');
         });
+
+        // 2. 클릭 시 라이트박스 오픈
+        img.parentElement.addEventListener('click', function() {
+          lightboxImg.src = img.src;
+          lightboxCaption.innerText = img.parentElement.querySelector('.gallery-caption').innerText;
+          lightbox.style.display = 'flex';
+          document.body.style.overflow = 'hidden'; // 스크롤 방지
+        });
+      });
+
+      // 3. 라이트박스 닫기
+      lightbox.addEventListener('click', function() {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
       });
     });
   </script>
