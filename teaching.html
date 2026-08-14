@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ko" class="scroll-smooth">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1Z5E4QSTR2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1Z5E4QSTR2', { 'anonymize_ip': true });
+  </script>
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teaching | Young-An Kim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🎓</text></svg>">
+  
+  <style>
+    :root{
+      --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --chip-border:#e2e8f0;
+      --maxw:1080px; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:'Inter','Noto Sans KR',sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
+    a{text-decoration:none; color:inherit;}
+    
+    header{position:sticky;top:0;backdrop-filter:saturate(1.2) blur(10px);background:rgba(248,250,252,.8);border-bottom:1px solid var(--chip-border);z-index:40}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:var(--maxw);margin:0 auto;padding:14px 28px}
+    .nav a.brand{display:flex;gap:12px;align-items:center;font-weight:700;color:var(--text)}
+    .nav .links{display:flex;gap:18px;flex-wrap:wrap}
+    .nav .links a{padding:6px 10px;border-radius:10px;color:var(--muted);font-weight:500}
+    .nav .links a:hover{background:#f1f5f9;color:var(--text)}
+    .nav .links a.active { color: var(--brand); font-weight: 700; }
+
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:40px 28px}
+    .head{margin-bottom: 32px; border-bottom: 2px solid var(--chip-border); padding-bottom: 12px;}
+    .head h2{margin:0; font-size: 2rem;}
+
+    .section-title { font-size: 1.3rem; font-weight: 700; margin: 36px 0 16px; color: var(--text); display: flex; align-items: center; gap: 8px; }
+    
+    /* 카드 컴포넌트 */
+    .card { background: var(--panel); border: 1px solid var(--chip-border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+    
+    /* 과목 카드 레이아웃 */
+    .course-card { display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+    .course-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    
+    .course-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
+    .course-code { font-weight: 700; font-size: 1.1rem; color: var(--brand); }
+    .course-term { font-size: 0.85rem; color: var(--muted); background: #f1f5f9; padding: 3px 8px; border-radius: 6px; }
+    .course-name { font-size: 1.15rem; font-weight: 600; margin: 2px 0 6px; }
+    .course-desc { color: #475569; font-size: 0.95rem; margin: 0; line-height: 1.6; }
+    
+    .badge-group { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+    .badge { font-size: 0.75rem; background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+
+    footer{margin:80px 0; color:var(--muted); text-align:center; font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="index.html"><span>🎓</span><span>Young-An Kim</span></a>
+      <div class="links">
+        <a href="index.html#about">About me</a>
+        <a href="index.html#news">News</a>
+        <a href="publications.html">Publications</a>
+        <a href="teaching.html" class="active">Teaching</a>
+        <a href="cv.html">CV</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="head">
+        <h2>Teaching</h2>
+      </div>
+
+      <!-- 1. 교육 철학 요약 (선택 사항) -->
+      <article class="card" style="line-height: 1.8; border-left: 4px solid var(--brand);">
+        <p style="margin: 0; font-size: 1.05rem; color: #334155;">
+          My teaching emphasizes bridging <strong>criminological theory</strong>, <strong>spatial methodology</strong>, and <strong>practical data analytics</strong>. I aim to equip students with critical thinking skills and technical competencies to analyze real-world social and spatial problems using rigorous empirical methods.
+        </p>
+      </article>
+
+      <!-- 2. 강의 과목 목록 -->
+      <div class="section-title">📚 Courses Taught at Florida State University</div>
+
+      <!-- 과목 예시 1: GIS / 공간분석 관련 -->
+      <article class="card course-card">
+        <div class="course-header">
+          <span class="course-code">CCJ 4070 / CJE 4732</span>
+          <span class="course-term">Undergraduate</span>
+        </div>
+        <div class="course-name">Crime Mapping & Spatial Analysis in Criminology</div>
+        <p class="course-desc">
+          An introduction to spatial patterns of crime and the application of Geographic Information Systems (GIS) in criminological research and criminal justice practice. Students learn point pattern analysis, spatial autocorrelation, and cartographic visualization techniques.
+        </p>
+        <div class="badge-group">
+          <span class="badge">GIS</span>
+          <span class="badge">Spatial Data</span>
+          <span class="badge">ArcGIS / QGIS</span>
+        </div>
+      </article>
+
+      <!-- 과목 예시 2: 연구 방법론 / 통계 관련 -->
+      <article class="card course-card">
+        <div class="course-header">
+          <span class="course-code">CCJ 4700</span>
+          <span class="course-term">Undergraduate</span>
+        </div>
+        <div class="course-name">Applied Statistics in Criminal Justice</div>
+        <p class="course-desc">
+          Covers quantitative research design, hypothesis testing, linear regression, and data interpretation for criminal justice policy evaluation and social science research.
+        </p>
+        <div class="badge-group">
+          <span class="badge">Quantitative Methods</span>
+          <span class="badge">Statistical Modeling</span>
+        </div>
+      </article>
+
+      <!-- 과목 예시 3: 환경범죄학 / 세미나 (추후 필요시 추가) -->
+      <article class="card course-card">
+        <div class="course-header">
+          <span class="course-code">CCJ 5XXX</span>
+          <span class="course-term">Graduate Seminar</span>
+        </div>
+        <div class="course-name">Environmental Criminology & Spatial Analytics</div>
+        <p class="course-desc">
+          Graduate-level seminar exploring crime and place, geometry of crime, situational crime prevention, and advanced spatial econometric models.
+        </p>
+        <div class="badge-group">
+          <span class="badge">Graduate Level</span>
+          <span class="badge">Spatial Econometrics</span>
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      <p>© <span id="year-now"></span> Young-An Kim. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('year-now').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
