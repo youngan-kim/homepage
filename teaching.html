@@ -18,6 +18,7 @@
   <style>
     :root{
       --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --chip-border:#e2e8f0;
+      --grad-brand:#6366f1; /* 대학원 섹션 포인트 색상 (Indigo) */
       --maxw:1080px; --radius:16px;
     }
     *{box-sizing:border-box}
@@ -36,23 +37,48 @@
     .head{margin-bottom: 32px; border-bottom: 2px solid var(--chip-border); padding-bottom: 12px;}
     .head h2{margin:0; font-size: 2rem;}
 
-    .section-title { font-size: 1.3rem; font-weight: 700; margin: 36px 0 16px; color: var(--text); display: flex; align-items: center; gap: 8px; }
-    
+    /* 레벨 구분 헤더 */
+    .level-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 40px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--chip-border);
+    }
+    .level-badge {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 4px 12px;
+      border-radius: 999px;
+    }
+    .badge-undergrad { background: #e0f2fe; color: var(--brand); }
+    .badge-grad { background: #e0e7ff; color: var(--grad-brand); }
+    .level-title { font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 0; }
+
     /* 카드 컴포넌트 */
     .card { background: var(--panel); border: 1px solid var(--chip-border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-    
-    /* 과목 카드 레이아웃 */
-    .course-card { display: flex; flex-direction: column; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+    .course-card { transition: transform 0.2s, box-shadow 0.2s; }
     .course-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     
-    .course-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-    .course-code { font-weight: 700; font-size: 1.1rem; color: var(--brand); }
-    .course-term { font-size: 0.85rem; color: var(--muted); background: #f1f5f9; padding: 3px 8px; border-radius: 6px; }
-    .course-name { font-size: 1.15rem; font-weight: 600; margin: 2px 0 6px; }
+    /* 학부/대학원 카드 테두리 포인트 */
+    .course-card.undergrad { border-left: 4px solid var(--brand); }
+    .course-card.grad { border-left: 4px solid var(--grad-brand); }
+
+    .course-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+    .course-code { font-weight: 700; font-size: 1.15rem; }
+    .course-code.undergrad { color: var(--brand); }
+    .course-code.grad { color: var(--grad-brand); }
+
+    .course-name { font-size: 1.2rem; font-weight: 600; margin: 0 0 8px; }
     .course-desc { color: #475569; font-size: 0.95rem; margin: 0; line-height: 1.6; }
     
-    .badge-group { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
-    .badge { font-size: 0.75rem; background: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 999px; font-weight: 600; }
+    .badge-group { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+    .badge { font-size: 0.75rem; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
+    .badge-blue { background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; }
+    .badge-purple { background: #faf5ff; color: #7c3aed; border: 1px solid #ddd6fe; }
 
     footer{margin:80px 0; color:var(--muted); text-align:center; font-size:0.9rem}
   </style>
@@ -79,62 +105,73 @@
         <h2>Teaching</h2>
       </div>
 
-      <!-- 1. 교육 철학 요약 (선택 사항) -->
-      <article class="card" style="line-height: 1.8; border-left: 4px solid var(--brand);">
+      <!-- 교육 철학 요약 -->
+      <article class="card" style="line-height: 1.8; background: #ffffff;">
         <p style="margin: 0; font-size: 1.05rem; color: #334155;">
-          My teaching emphasizes bridging <strong>criminological theory</strong>, <strong>spatial methodology</strong>, and <strong>practical data analytics</strong>. I aim to equip students with critical thinking skills and technical competencies to analyze real-world social and spatial problems using rigorous empirical methods.
+          My teaching integrates <strong>criminological theory</strong> with <strong>spatial methodologies</strong> and <strong>quantitative data analysis</strong>. I aim to equip students—from undergraduates learning fundamentals to graduate researchers developing advanced studies—with critical thinking and computational skills to rigorously examine crime patterns and urban problems.
         </p>
       </article>
 
-      <!-- 2. 강의 과목 목록 -->
-      <div class="section-title">📚 Courses Taught at Florida State University</div>
+      <!-- ========================================== -->
+      <!-- 1. GRADUATE COURSES SECTION -->
+      <!-- ========================================== -->
+      <div class="level-header">
+        <span class="level-badge badge-grad">Graduate</span>
+        <h3 class="level-title">Graduate Courses & Seminars</h3>
+      </div>
 
-      <!-- 과목 예시 1: GIS / 공간분석 관련 -->
-      <article class="card course-card">
+      <!-- 대학원 과목 1 -->
+      <article class="card course-card grad">
         <div class="course-header">
-          <span class="course-code">CCJ 4070 / CJE 4732</span>
-          <span class="course-term">Undergraduate</span>
+          <span class="course-code grad">CCJ 5XXX / CCJ 6XXX</span>
+        </div>
+        <div class="course-name">Advanced Spatial Analysis & GIS in Criminology</div>
+        <p class="course-desc">
+          A graduate-level seminar focused on spatial econometrics, point pattern modeling, spatial lag/error specifications, and computational research methods in environmental criminology and spatial social science.
+        </p>
+        <div class="badge-group">
+          <span class="badge badge-purple">Spatial Econometrics</span>
+          <span class="badge badge-purple">Advanced GIS</span>
+          <span class="badge badge-purple">Quantitative Methodology</span>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- 2. UNDERGRADUATE COURSES SECTION -->
+      <!-- ========================================== -->
+      <div class="level-header" style="margin-top: 50px;">
+        <span class="level-badge badge-undergrad">Undergraduate</span>
+        <h3 class="level-title">Undergraduate Courses</h3>
+      </div>
+
+      <!-- 학부 과목 1: GIS / 공간분석 -->
+      <article class="card course-card undergrad">
+        <div class="course-header">
+          <span class="course-code undergrad">CCJ 4070 / CJE 4732</span>
         </div>
         <div class="course-name">Crime Mapping & Spatial Analysis in Criminology</div>
         <p class="course-desc">
-          An introduction to spatial patterns of crime and the application of Geographic Information Systems (GIS) in criminological research and criminal justice practice. Students learn point pattern analysis, spatial autocorrelation, and cartographic visualization techniques.
+          An introductory course on the spatial dimensions of crime and the practical use of GIS for crime pattern detection, hotspot analysis, and environmental crime prevention.
         </p>
         <div class="badge-group">
-          <span class="badge">GIS</span>
-          <span class="badge">Spatial Data</span>
-          <span class="badge">ArcGIS / QGIS</span>
+          <span class="badge badge-blue">GIS Applications</span>
+          <span class="badge badge-blue">Crime Mapping</span>
+          <span class="badge badge-blue">Spatial Data</span>
         </div>
       </article>
 
-      <!-- 과목 예시 2: 연구 방법론 / 통계 관련 -->
-      <article class="card course-card">
+      <!-- 학부 과목 2: 통계 / 조사방법론 -->
+      <article class="card course-card undergrad">
         <div class="course-header">
-          <span class="course-code">CCJ 4700</span>
-          <span class="course-term">Undergraduate</span>
+          <span class="course-code undergrad">CCJ 4700</span>
         </div>
-        <div class="course-name">Applied Statistics in Criminal Justice</div>
+        <div class="course-name">Applied Statistics / Research Methods in Criminal Justice</div>
         <p class="course-desc">
-          Covers quantitative research design, hypothesis testing, linear regression, and data interpretation for criminal justice policy evaluation and social science research.
+          Covers foundational statistical concepts, quantitative research design, hypothesis testing, and empirical evaluation of criminal justice policies and social behavior.
         </p>
         <div class="badge-group">
-          <span class="badge">Quantitative Methods</span>
-          <span class="badge">Statistical Modeling</span>
-        </div>
-      </article>
-
-      <!-- 과목 예시 3: 환경범죄학 / 세미나 (추후 필요시 추가) -->
-      <article class="card course-card">
-        <div class="course-header">
-          <span class="course-code">CCJ 5XXX</span>
-          <span class="course-term">Graduate Seminar</span>
-        </div>
-        <div class="course-name">Environmental Criminology & Spatial Analytics</div>
-        <p class="course-desc">
-          Graduate-level seminar exploring crime and place, geometry of crime, situational crime prevention, and advanced spatial econometric models.
-        </p>
-        <div class="badge-group">
-          <span class="badge">Graduate Level</span>
-          <span class="badge">Spatial Econometrics</span>
+          <span class="badge badge-blue">Applied Statistics</span>
+          <span class="badge badge-blue">Research Design</span>
         </div>
       </article>
 
