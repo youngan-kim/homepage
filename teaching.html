@@ -18,7 +18,8 @@
   <style>
     :root{
       --bg:#f8fafc; --panel:#ffffff; --muted:#64748b; --text:#1e293b; --brand:#0284c7; --chip-border:#e2e8f0;
-      --grad-brand:#6366f1; /* 대학원 섹션 포인트 색상 (Indigo) */
+      --grad-brand:#6366f1;
+      --cert-brand:#0f766e; /* Certificate 전용 Teal 톤 */
       --maxw:1080px; --radius:16px;
     }
     *{box-sizing:border-box}
@@ -37,12 +38,12 @@
     .head{margin-bottom: 32px; border-bottom: 2px solid var(--chip-border); padding-bottom: 12px;}
     .head h2{margin:0; font-size: 2rem;}
 
-    /* 레벨 구분 헤더 */
+    /* 섹션 구분 헤더 */
     .level-header {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin: 40px 0 20px;
+      margin: 48px 0 20px;
       padding-bottom: 10px;
       border-bottom: 2px solid var(--chip-border);
     }
@@ -54,31 +55,43 @@
       padding: 4px 12px;
       border-radius: 999px;
     }
-    .badge-undergrad { background: #e0f2fe; color: var(--brand); }
+    .badge-cert { background: #ccfbf1; color: var(--cert-brand); }
     .badge-grad { background: #e0e7ff; color: var(--grad-brand); }
-    .level-title { font-size: 1.4rem; font-weight: 700; color: var(--text); margin: 0; }
+    .badge-undergrad { background: #e0f2fe; color: var(--brand); }
+    .level-title { font-size: 1.35rem; font-weight: 700; color: var(--text); margin: 0; }
 
     /* 카드 컴포넌트 */
     .card { background: var(--panel); border: 1px solid var(--chip-border); border-radius: var(--radius); padding: 24px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
     .course-card { transition: transform 0.2s, box-shadow 0.2s; }
     .course-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     
-    /* 학부/대학원 카드 테두리 포인트 */
-    .course-card.undergrad { border-left: 4px solid var(--brand); }
+    .course-card.cert { border-left: 4px solid var(--cert-brand); }
     .course-card.grad { border-left: 4px solid var(--grad-brand); }
+    .course-card.undergrad { border-left: 4px solid var(--brand); }
 
     .course-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
     .course-code { font-weight: 700; font-size: 1.15rem; }
-    .course-code.undergrad { color: var(--brand); }
+    .course-code.cert { color: var(--cert-brand); }
     .course-code.grad { color: var(--grad-brand); }
+    .course-code.undergrad { color: var(--brand); }
 
-    .course-name { font-size: 1.2rem; font-weight: 600; margin: 0 0 8px; }
+    .course-name { font-size: 1.15rem; font-weight: 600; margin: 0 0 8px; }
     .course-desc { color: #475569; font-size: 0.95rem; margin: 0; line-height: 1.6; }
     
     .badge-group { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
     .badge { font-size: 0.75rem; padding: 3px 10px; border-radius: 999px; font-weight: 600; }
-    .badge-blue { background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; }
+    .badge-teal { background: #f0fdfa; color: #0f766e; border: 1px solid #99f6e4; }
     .badge-purple { background: #faf5ff; color: #7c3aed; border: 1px solid #ddd6fe; }
+    .badge-blue { background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; }
+
+    /* 서티피켓 개요 박스 */
+    .cert-overview {
+      background: #f0fdfa;
+      border: 1px solid #99f6e4;
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
 
     footer{margin:80px 0; color:var(--muted); text-align:center; font-size:0.9rem}
   </style>
@@ -102,25 +115,104 @@
   <main class="wrap">
     <section>
       <div class="head">
-        <h2>Teaching</h2>
+        <h2>Teaching & Academic Programs</h2>
       </div>
 
       <!-- 교육 철학 요약 -->
-      <article class="card" style="line-height: 1.8; background: #ffffff;">
+      <article class="card" style="line-height: 1.8;">
         <p style="margin: 0; font-size: 1.05rem; color: #334155;">
-          My teaching integrates <strong>criminological theory</strong> with <strong>spatial methodologies</strong> and <strong>quantitative data analysis</strong>. I aim to equip students, from undergraduates learning fundamentals to graduate researchers developing advanced studies, with critical thinking and computational skills to rigorously examine crime patterns and urban problems.
+          My teaching bridges <strong>criminological theory</strong>, <strong>spatial methodology</strong>, and <strong>practical data analytics</strong>. I aim to equip students with critical analytical thinking and technical competencies to examine real-world crime patterns, neighborhood dynamics, and criminal justice policies using rigorous empirical methods.
         </p>
       </article>
 
       <!-- ========================================== -->
-      <!-- 1. GRADUATE COURSES SECTION -->
+      <!-- 1. CRIME ANALYSIS CERTIFICATE PROGRAM -->
+      <!-- ========================================== -->
+      <div class="level-header">
+        <span class="level-badge badge-cert">Certificate Program</span>
+        <h3 class="level-title">Crime Analysis Certificate Program</h3>
+      </div>
+
+      <div class="cert-overview">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <h4 style="margin: 0; font-size: 1.2rem; color: #115e59; font-weight: 700;">
+            Program Leadership & Curriculum Coordination
+          </h4>
+          <span style="font-size: 0.8rem; font-weight: 700; background: #0f766e; color: #fff; padding: 4px 12px; border-radius: 999px;">
+            Director / Coordinator
+          </span>
+        </div>
+        <p style="margin: 0; font-size: 0.95rem; color: #334155; line-height: 1.7;">
+          I direct and coordinate the <strong>Undergraduate Certificate in Crime Analysis</strong> in the College of Criminology and Criminal Justice at Florida State University. 
+          This specialized program trains students in analytical problem-solving, tactical intelligence, and spatial analytics for careers in law enforcement, public safety, and crime intelligence agencies.
+        </p>
+      </div>
+
+      <!-- 서티 필수 1: CJE 4732 -->
+      <article class="card course-card cert">
+        <div class="course-header">
+          <span class="course-code cert">CJE 4732</span>
+          <span style="font-size: 0.8rem; font-weight: 700; background: #fee2e2; color: #b91c1c; padding: 3px 8px; border-radius: 6px;">
+            Core Required Course
+          </span>
+        </div>
+        <div class="course-name">Introduction to Crime Analysis</div>
+        <p class="course-desc">
+          The primary foundational requirement for the Certificate Program. Covers tactical, operational, and strategic crime analysis, analytical problem-solving models (SARA), pattern detection, and data-driven law enforcement decision-making.
+        </p>
+        <div class="badge-group">
+          <span class="badge badge-teal">Core Requirement</span>
+          <span class="badge badge-teal">Tactical & Strategic Analysis</span>
+          <span class="badge badge-teal">Data-Driven Policing</span>
+        </div>
+      </article>
+
+      <!-- 서티 필수 2: CCJ 4742 -->
+      <article class="card course-card cert">
+        <div class="course-header">
+          <span class="course-code cert">CCJ 4742</span>
+          <span style="font-size: 0.8rem; font-weight: 700; background: #fee2e2; color: #b91c1c; padding: 3px 8px; border-radius: 6px;">
+            Core Required Course
+          </span>
+        </div>
+        <div class="course-name">GIS Applications in Criminology</div>
+        <p class="course-desc">
+          A core hands-on laboratory course for the Certificate Program. Introduces foundational GIS principles, spatial data handling, point pattern analysis, kernel density hotspot mapping, and practical software applications using ArcGIS / QGIS.
+        </p>
+        <div class="badge-group">
+          <span class="badge badge-teal">Core Requirement</span>
+          <span class="badge badge-teal">GIS Laboratory</span>
+          <span class="badge badge-teal">Hotspot Mapping</span>
+        </div>
+      </article>
+
+      <!-- 서티 선택: CCJ 4070 -->
+      <article class="card course-card cert">
+        <div class="course-header">
+          <span class="course-code cert">CCJ 4070</span>
+          <span style="font-size: 0.8rem; font-weight: 700; background: #fef3c7; color: #92400e; padding: 3px 8px; border-radius: 6px;">
+            Elective Course
+          </span>
+        </div>
+        <div class="course-name">Crime Hotspots</div>
+        <p class="course-desc">
+          A key theoretical elective for the Certificate Program. Explores environmental criminology, crime pattern theory, and place-based crime concentration, focusing on why crime clusters in specific micro-places and how situational crime prevention is structured.
+        </p>
+        <div class="badge-group">
+          <span class="badge badge-teal">Certificate Elective</span>
+          <span class="badge badge-teal">Environmental Criminology</span>
+          <span class="badge badge-teal">Place-Based Prevention</span>
+        </div>
+      </article>
+
+      <!-- ========================================== -->
+      <!-- 2. GRADUATE COURSES -->
       <!-- ========================================== -->
       <div class="level-header">
         <span class="level-badge badge-grad">Graduate</span>
         <h3 class="level-title">Graduate Courses & Seminars</h3>
       </div>
 
-      <!-- 대학원 과목 1 -->
       <article class="card course-card grad">
         <div class="course-header">
           <span class="course-code grad">CCJ 5XXX / CCJ 6XXX</span>
@@ -132,113 +224,65 @@
         <div class="badge-group">
           <span class="badge badge-purple">Spatial Econometrics</span>
           <span class="badge badge-purple">Advanced GIS</span>
-          <span class="badge badge-purple">Quantitative Methodology</span>
+          <span class="badge badge-purple">Quantitative Modeling</span>
         </div>
       </article>
 
-<!-- ========================================== -->
-<!-- UNDERGRADUATE COURSES SECTION -->
-<!-- ========================================== -->
-<div class="level-header">
-  <span class="level-badge badge-undergrad">Undergraduate</span>
-  <h3 class="level-title">Undergraduate Courses</h3>
-</div>
+      <!-- ========================================== -->
+      <!-- 3. OTHER UNDERGRADUATE COURSES -->
+      <!-- ========================================== -->
+      <div class="level-header">
+        <span class="level-badge badge-undergrad">Undergraduate</span>
+        <h3 class="level-title">Other Undergraduate Courses</h3>
+      </div>
 
-<!-- 1. CCJ 4070 -->
-<article class="card course-card undergrad">
-  <div class="course-header">
-    <span class="course-code undergrad">CCJ 4070</span>
-  </div>
-  <div class="course-name">Crime Hotspots</div>
-  <p class="course-desc">
-    An upper-level theoretical seminar exploring environmental criminology, crime pattern theory, and place-based perspectives. Students examine why crime concentrates in specific places and evaluate situational crime prevention strategies.
-  </p>
-  <div class="badge-group">
-    <span class="badge badge-blue">Environmental Criminology</span>
-    <span class="badge badge-blue">Place-Based Crime</span>
-    <span class="badge badge-blue">Crime Concentration</span>
-  </div>
-</article>
+      <!-- CCJ 4746 -->
+      <article class="card course-card undergrad">
+        <div class="course-header">
+          <span class="course-code undergrad">CCJ 4746</span>
+        </div>
+        <div class="course-name">Statistics in Criminology</div>
+        <p class="course-desc">
+          An introduction to quantitative analysis in criminal justice research, covering descriptive statistics, hypothesis testing (t-test, z-test), Analysis of Variance (ANOVA), bivariate correlation, and ordinary least squares (OLS) linear regression.
+        </p>
+        <div class="badge-group">
+          <span class="badge badge-blue">Applied Statistics</span>
+          <span class="badge badge-blue">Hypothesis Testing</span>
+          <span class="badge badge-blue">Linear Regression</span>
+        </div>
+      </article>
 
-<!-- 2. CCJ 4031 -->
-<article class="card course-card undergrad">
-  <div class="course-header">
-    <span class="course-code undergrad">CCJ 4031</span>
-  </div>
-  <div class="course-name">Individual and Society</div>
-  <p class="course-desc">
-    Investigates the intersection of urban sociology, neighborhood structural characteristics, and crime. Topics range from foundational urban theories (e.g., Chicago School, Social Disorganization) to contemporary spatial and neighborhood-level crime research.
-  </p>
-  <div class="badge-group">
-    <span class="badge badge-blue">Urban Sociology</span>
-    <span class="badge badge-blue">Neighborhood & Community</span>
-    <span class="badge badge-blue">Spatial Inequality</span>
-  </div>
-</article>
+      <!-- CCJ 4031 -->
+      <article class="card course-card undergrad">
+        <div class="course-header">
+          <span class="course-code undergrad">CCJ 4031</span>
+        </div>
+        <div class="course-name">Individual and Society</div>
+        <p class="course-desc">
+          Investigates urban sociology, neighborhood structural characteristics, and crime. Topics range from foundational urban theories (e.g., Chicago School, Social Disorganization) to contemporary spatial and neighborhood-level crime research.
+        </p>
+        <div class="badge-group">
+          <span class="badge badge-blue">Urban Sociology</span>
+          <span class="badge badge-blue">Neighborhood & Community</span>
+          <span class="badge badge-blue">Spatial Inequality</span>
+        </div>
+      </article>
 
-<!-- 3. CCJ 4742 -->
-<article class="card course-card undergrad">
-  <div class="course-header">
-    <span class="course-code undergrad">CCJ 4742</span>
-  </div>
-  <div class="course-name">GIS Applications in Criminology</div>
-  <p class="course-desc">
-    A hands-on laboratory course introducing the fundamentals of Geographic Information Systems (GIS) and spatial data analysis. Students learn cartographic principles, point pattern analysis, kernel density estimation, and practical GIS software operations.
-  </p>
-  <div class="badge-group">
-    <span class="badge badge-blue">GIS Laboratory</span>
-    <span class="badge badge-blue">Spatial Data Analytics</span>
-    <span class="badge badge-blue">ArcGIS / QGIS</span>
-  </div>
-</article>
-
-<!-- 4. CJE 4732 -->
-<article class="card course-card undergrad">
-  <div class="course-header">
-    <span class="course-code undergrad">CJE 4732</span>
-  </div>
-  <div class="course-name">Introduction to Crime Analysis</div>
-  <p class="course-desc">
-    Provides a comprehensive overview of tactical, operational, and strategic crime analysis. Focuses on data collection, pattern detection, analytical problem-solving (SARA model), and data-driven criminal justice decision making.
-  </p>
-  <div class="badge-group">
-    <span class="badge badge-blue">Crime Analysis</span>
-    <span class="badge badge-blue">Tactical & Strategic Analysis</span>
-    <span class="badge badge-blue">Evidence-Based Policing</span>
-  </div>
-</article>
-
-<!-- 5. CCJ 4746 -->
-<article class="card course-card undergrad">
-  <div class="course-header">
-    <span class="course-code undergrad">CCJ 4746</span>
-  </div>
-  <div class="course-name">Statistics in Criminology</div>
-  <p class="course-desc">
-    An introduction to quantitative analysis in criminal justice research, covering descriptive statistics, hypothesis testing (t-test, z-test), Analysis of Variance (ANOVA), bivariate correlation, and ordinary least squares (OLS) linear regression.
-  </p>
-  <div class="badge-group">
-    <span class="badge badge-blue">Applied Statistics</span>
-    <span class="badge badge-blue">Hypothesis Testing</span>
-    <span class="badge badge-blue">Linear Regression</span>
-  </div>
-</article>
-
-<!-- 6. CCJ 3011 -->
-<article class="card course-card undergrad">
-  <div class="course-header">
-    <span class="course-code undergrad">CCJ 3011</span>
-  </div>
-  <div class="course-name">Criminology</div>
-  <p class="course-desc">
-    A foundational survey course examining core criminological theories, patterns and trends of criminal behavior, definitions of crime, and societal responses to crime and delinquency.
-  </p>
-  <div class="badge-group">
-    <span class="badge badge-blue">Criminological Theory</span>
-    <span class="badge badge-blue">Crime Trends</span>
-    <span class="badge badge-blue">Core Curriculum</span>
-  </div>
-</article>
+      <!-- CCJ 3011 -->
+      <article class="card course-card undergrad">
+        <div class="course-header">
+          <span class="course-code undergrad">CCJ 3011</span>
+        </div>
+        <div class="course-name">Criminology</div>
+        <p class="course-desc">
+          A foundational survey course examining core criminological theories, patterns and trends of criminal behavior, definitions of crime, and societal responses to crime and delinquency.
+        </p>
+        <div class="badge-group">
+          <span class="badge badge-blue">Criminological Theory</span>
+          <span class="badge badge-blue">Crime Trends</span>
+          <span class="badge badge-blue">Core Curriculum</span>
+        </div>
+      </article>
 
     </section>
 
